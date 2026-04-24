@@ -26,40 +26,7 @@
      ═══════════════════════════════════════ */
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ═══════════════════════════════════════
-     CUSTOM CURSOR
-     ═══════════════════════════════════════ */
-  const dot = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
   const isTouch = window.matchMedia('(pointer: coarse)').matches;
-
-  if (!isTouch && dot && ring) {
-    let mx = 0, my = 0;
-    let dx = 0, dy = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
-    });
-
-    function animateRing() {
-      dx += (mx - dx) * 0.15;
-      dy += (my - dy) * 0.15;
-      ring.style.left = dx + 'px';
-      ring.style.top = dy + 'px';
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    // Hover states
-    const interactives = document.querySelectorAll('a, button, .magnetic, input');
-    interactives.forEach((el) => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
-    });
-  }
 
   /* ═══════════════════════════════════════
      HERO TEXT REVEAL (word-by-word)
