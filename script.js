@@ -20,18 +20,12 @@
       duration: 1.5,
       ease: 'power3.out'
     }, 0)
-    // Fade in top info
+    // Fade in top info (logo + overline)
     .to('.info-top', {
       opacity: 1,
       y: 0,
       duration: 1.2
     }, 0.2)
-    // Fade in overline
-    .to('.overline', {
-      opacity: 1,
-      y: 0,
-      duration: 1
-    }, 0.4)
     // Fade in headline
     .to('.headline', {
       opacity: 1,
