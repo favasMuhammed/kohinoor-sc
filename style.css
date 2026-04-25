@@ -19,12 +19,16 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  scroll-snap-type: y proximity;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   font-family: var(--sans);
   background: var(--purple);
   color: var(--off-white);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 img, video { display: block; max-width: 100%; height: auto; }
@@ -36,6 +40,7 @@ a { color: inherit; text-decoration: none; }
   min-height: 100vh;
   min-height: 100svh;
   width: 100%;
+  scroll-snap-align: center;
 }
 
 /* ═══════════════════════════════════════
@@ -45,7 +50,8 @@ a { color: inherit; text-decoration: none; }
   flex: 0 0 45%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* Center everything vertically */
+  gap: 3rem; /* Add gap since we removed space-between */
   padding: 3rem 4rem;
   position: relative;
   z-index: 10;
@@ -151,7 +157,6 @@ a { color: inherit; text-decoration: none; }
   gap: 2rem;
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 2rem;
-  margin-top: 2rem;
 }
 
 .details-grid {
@@ -218,6 +223,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 992px) {
+  html { scroll-snap-type: none; }
+  
   .split-layout {
     flex-direction: column;
   }
