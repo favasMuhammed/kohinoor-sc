@@ -48,23 +48,17 @@
   <!-- Custom Cursor -->
   <div class="cursor"></div>
 
-  <!-- Three.js Ambient Particle Field -->
-  <canvas id="ambient-canvas"></canvas>
+  <!-- Ambient Cinematic Video Background -->
+  <video class="ambient-video" autoplay loop muted playsinline poster="IMG_4219-scaled.webp">
+    <source src="An-Najeebkohinoor-1.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
 
   <main class="viewport-container">
     
     <!-- ZONE 1: Logo Mark -->
     <header class="zone zone-1">
-      <svg class="logo-mark" viewBox="0 0 100 100" width="140" height="140" role="img" aria-label="Kohinoor Caterer Emblem">
-        <!-- Simplified crown/gem SVG representing the brand mark -->
-        <g stroke="white" stroke-width="2" fill="none">
-          <path d="M20 50 L50 20 L80 50 Z" />
-          <path d="M50 20 L50 80" />
-          <path d="M35 35 L65 35" />
-          <rect x="10" y="80" width="80" height="5" fill="white" />
-          <circle cx="50" cy="10" r="3" fill="white" />
-        </g>
-      </svg>
+      <img src="KC.png" class="logo-mark" alt="Kohinoor Caterer">
     </header>
 
     <!-- ZONE 2: Brand Name Block -->
@@ -122,9 +116,8 @@
   <!-- Dependencies -->
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <!-- Splitting.js for character splitting (as native GSAP SplitText is a premium plugin) -->
+  <!-- Splitting.js for character splitting -->
   <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

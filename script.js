@@ -73,8 +73,7 @@ const init = () => {
     });
   }
 
-  // 5. Three.js Ambient Particle Field
-  initThreeJS();
+  // 5. Removed Three.js ambient field (replaced with cinematic video)
 
   // 6. Master GSAP Animation Timeline
   // Wait a tiny bit to ensure fonts/splitting are ready
@@ -85,8 +84,8 @@ const init = () => {
       // 0.0s — Page starts dark (body opacity 0 -> 1)
       .to('body', { opacity: 1, duration: 0.1 })
 
-      // 0.0s — Three.js canvas fades in
-      .to('#ambient-canvas', { opacity: 1, duration: 2 }, 0)
+      // 0.0s — Cinematic video fades in
+      .to('.ambient-video', { opacity: 1, duration: 2 }, 0)
 
       // 0.6s — Logo mark descends
       .to('.logo-mark', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: -20, scale: 0.9 } }, 0.6)
@@ -134,116 +133,5 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
-// ─────────────────────────────────────────────────────────
-// Three.js Logic 
-// ─────────────────────────────────────────────────────────
-function initThreeJS() {
-  const canvas = document.getElementById('ambient-canvas');
-  if (!canvas) return;
 
-  const scene = new THREE.Scene();
-
-  // Use Orthographic camera so it perfectly maps to viewport without perspective distortion on edges
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const camera = new THREE.OrthographicCamera(width / -2, width / 2, height / 2, height / -2, 1, 1000);
-  camera.position.z = 10;
-
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-  renderer.setSize(width, height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  // Determine particle count based on screen width (as requested)
-  let particleCount = 180;
-  if (width < 1024) particleCount = 120;
-  if (width < 600) particleCount = 80;
-
-  const particles = [];
-  const particleMaterial = new THREE.MeshBasicMaterial({
-    color: 0xC9A84C,
-    transparent: true,
-    opacity: 0.6,
-    side: THREE.DoubleSide
-  });
-
-  // Create custom diamond geometry (two triangles)
-  const geom = new THREE.BufferGeometry();
-  const size = 3; // tiny pixel size for orthographic view
-  const vertices = new Float32Array([
-    0, size, 0,   // top
-    -size, 0, 0,  // left
-    size, 0, 0,   // right
-
-    -size, 0, 0,  // left
-    0, -size, 0,  // bottom
-    size, 0, 0    // right
-  ]);
-  geom.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
-
-  for (let i = 0; i < particleCount; i++) {
-    const mesh = new THREE.Mesh(geom, particleMaterial.clone());
-
-    // Spread across viewport
-    mesh.position.x = (Math.random() - 0.5) * width;
-    mesh.position.y = (Math.random() - 0.5) * height;
-    mesh.position.z = (Math.random() - 0.5) * 5;
-
-    // Randomize initial rotation and opacity
-    mesh.rotation.z = Math.random() * Math.PI;
-    mesh.material.opacity = 0.2 + Math.random() * 0.5;
-
-    // Attach custom data for animation
-    mesh.userData = {
-      seed: Math.random() * 100,
-      speedY: 0.2 + Math.random() * 0.4, // pixels per frame in ortho
-      rotSpeed: 0.01 + Math.random() * 0.02
-    };
-
-    scene.add(mesh);
-    particles.push(mesh);
-  }
-
-  let time = 0;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    time += 0.01;
-
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-
-      // Upward drift
-      p.position.y += p.userData.speedY;
-
-      // If it goes off top, reset to bottom
-      if (p.position.y > height / 2 + 10) {
-        p.position.y = -height / 2 - 10;
-        p.position.x = (Math.random() - 0.5) * width; // new random X
-      }
-
-      // Horizontal sway (sine wave)
-      p.position.x += Math.sin(time + p.userData.seed) * 0.3;
-
-      // Slow rotation
-      p.rotation.z += p.userData.rotSpeed;
-    }
-
-    renderer.render(scene, camera);
-  }
-
-  animate();
-
-  // Handle Resize
-  window.addEventListener('resize', () => {
-    const newW = window.innerWidth;
-    const newH = window.innerHeight;
-
-    camera.left = newW / -2;
-    camera.right = newW / 2;
-    camera.top = newH / 2;
-    camera.bottom = newH / -2;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(newW, newH);
-  });
-}
+// End of file

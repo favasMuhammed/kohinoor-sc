@@ -47,16 +47,25 @@ body::before {
   mix-blend-mode: overlay;
 }
 
-/* Three.js Ambient Particle Canvas */
-#ambient-canvas {
+/* Cinematic Video Background */
+.ambient-video {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0; /* Fades in via GSAP */
+}
+
+/* Deep Purple Cinematic Overlay */
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(42, 16, 80, 0.85); /* Deep purple overlay */
   z-index: 0;
   pointer-events: none;
-  opacity: 0; /* Fades in via GSAP */
 }
 
 /* Custom Magnetic Cursor */
@@ -114,10 +123,12 @@ a:focus-visible {
 
 /* ZONE 1: Logo Mark */
 .zone-1 {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 .logo-mark {
   opacity: 0; /* GSAP */
+  width: 180px;
+  max-width: 80vw;
 }
 
 /* ZONE 2: Brand Name Block */
