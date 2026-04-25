@@ -64,7 +64,7 @@ a { color: inherit; text-decoration: none; }
 }
 .tagline {
   font-family: var(--sans);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -78,7 +78,7 @@ a { color: inherit; text-decoration: none; }
 
 .overline {
   font-family: var(--sans);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -88,8 +88,8 @@ a { color: inherit; text-decoration: none; }
 
 .headline {
   font-family: var(--serif);
-  font-size: clamp(3rem, 5.5vw, 5.5rem);
-  font-weight: 300;
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--white);
@@ -102,12 +102,12 @@ a { color: inherit; text-decoration: none; }
 }
 
 .body-text {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   font-weight: 300;
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--grey-300);
   margin-bottom: 2rem;
-  max-width: 90%;
+  max-width: 95%;
 }
 
 /* CTAs */
@@ -119,7 +119,7 @@ a { color: inherit; text-decoration: none; }
 
 .btn {
   font-family: var(--sans);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -129,7 +129,7 @@ a { color: inherit; text-decoration: none; }
 .btn-solid {
   background: var(--gold);
   color: var(--purple);
-  padding: 1.1rem 2.5rem;
+  padding: 1.2rem 2.8rem;
   border-radius: 100px;
 }
 .btn-solid:hover {
@@ -172,14 +172,14 @@ a { color: inherit; text-decoration: none; }
   gap: 0.5rem;
 }
 .detail-label {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--grey-400);
 }
 .detail-value {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--off-white);
 }
 
