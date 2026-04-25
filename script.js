@@ -90,24 +90,10 @@ const init = () => {
       // 0.6s — Logo mark descends
       .to('.logo-mark', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: -20, scale: 0.9 } }, 0.6)
 
-      // 0.8s — KOHINOOR chars shatter in
-      .to('.brand-name .char', {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        stagger: 0.055,
-        duration: 1.1,
-        startAt: { opacity: 0, y: 80, rotateX: -50 },
-        transformOrigin: "0% 50% -80px"
-      }, 0.8)
-
       // 1.5s — Ornament divider draws itself
       .to('.divider-line-left', { strokeDashoffset: 0, duration: 0.7 }, 1.5)
       .to('.divider-line-right', { strokeDashoffset: 0, duration: 0.7 }, 1.5)
       .to('.divider-diamond', { scale: 1, duration: 0.5, ease: "back.out(3)", startAt: { scale: 0, transformOrigin: "50% 50%" } }, 1.9)
-
-      // 1.6s — CATERER fades up
-      .to('.brand-sub', { opacity: 1, y: 0, duration: 0.8, startAt: { y: 10 } }, 1.6)
 
       // 2.0s — Hero line words
       .to('.hero-line .word', { opacity: 1, y: 0, stagger: 0.07, duration: 0.9, startAt: { opacity: 0, y: 20 } }, 2.0)

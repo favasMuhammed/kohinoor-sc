@@ -127,41 +127,9 @@ a:focus-visible {
 }
 .logo-mark {
   opacity: 0; /* GSAP */
-  width: 180px;
-  max-width: 80vw;
-}
-
-/* ZONE 2: Brand Name Block */
-.zone-2 {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.brand-name {
-  font-family: var(--sans);
-  font-weight: 200;
-  font-size: clamp(4.5rem, 10vw, 9rem);
-  letter-spacing: 0.35em;
-  color: var(--white);
-  text-transform: uppercase;
-  line-height: 1;
-  /* Splitting.js classes will wrap chars */
-}
-/* Splitting.js overrides */
-.brand-name .word { display: inline-block; }
-.brand-name .char { display: inline-block; }
-
-.brand-sub {
-  font-family: var(--sans);
-  font-weight: 300;
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
-  letter-spacing: 0.6em;
-  color: rgba(255, 255, 255, 0.55);
-  text-transform: uppercase;
-  margin-top: -0.2em;
-  padding-left: 0.6em; /* Optical centering for letter-spacing */
-  opacity: 0; /* GSAP */
+  filter: brightness(0) invert(1);
+  width: clamp(200px, 25vw, 350px);
+  max-width: 90vw;
 }
 
 /* ZONE 3: Ornamental Divider */
@@ -355,8 +323,7 @@ a:focus-visible {
 }
 
 @media (max-width: 1023px) {
-  .brand-name { font-size: 6rem; }
-  .logo-mark { width: 120px; height: 120px; }
+  .logo-mark { width: 220px; }
   .zone-5 { margin-bottom: 36px; }
   
   .cta-surface {
@@ -376,7 +343,6 @@ a:focus-visible {
 }
 
 @media (max-width: 767px) {
-  .brand-name { font-size: 5rem; }
   .cta-surface { width: 90vw; max-width: 400px; }
   
   .contact-strip {
@@ -387,16 +353,13 @@ a:focus-visible {
 }
 
 @media (max-width: 599px) {
-  .brand-name { font-size: 4rem; }
-  .brand-sub { font-size: 1rem; }
-  .logo-mark { width: 100px; height: 100px; }
+  .logo-mark { width: 180px; }
   .viewport-container { padding: 0 24px; }
   .zone-1 { margin-bottom: 24px; }
   .zone-4 { margin-bottom: 24px; }
 }
 
 @media (max-width: 374px) {
-  .brand-name { font-size: 3.2rem; }
   .hero-line { font-size: 1.6rem; }
 }
 
