@@ -144,10 +144,11 @@ a:focus-visible {
 .hero-line {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--white);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 /* Splitting.js for words */
 .hero-line .word { display: inline-block; }
@@ -162,12 +163,13 @@ a:focus-visible {
 .hero-sub {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.95);
   margin-top: 12px;
   text-transform: uppercase;
   opacity: 0; /* GSAP */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 /* ZONE 5: Liquid Glass CTA */
@@ -220,25 +222,26 @@ a:focus-visible {
 }
 .micro-label {
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: 0.52rem;
+  font-weight: 400;
+  font-size: 0.65rem;
   letter-spacing: 0.38em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 8px;
 }
 .cta-phone {
   font-family: var(--sans);
-  font-weight: 400;
-  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1.2rem;
   color: var(--white);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   transition: color 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 .cta-email {
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
   transition: color 0.3s ease;
 }
 .cta-phone:hover, .cta-email:hover {
@@ -260,11 +263,11 @@ a:focus-visible {
   background: var(--gold);
   color: var(--purple);
   font-family: var(--sans);
-  font-weight: 500;
-  font-size: 0.6rem;
+  font-weight: 600;
+  font-size: 0.75rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2.2rem;
   border-radius: 30px;
   display: inline-flex;
   align-items: center;
@@ -281,37 +284,39 @@ a:focus-visible {
 .contact-strip {
   font-family: var(--sans);
   font-style: normal;
-  font-weight: 300;
-  font-size: 0.7rem;
+  font-weight: 400;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   opacity: 0; /* GSAP */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 .contact-strip a {
   transition: color 0.2s ease;
 }
 .contact-strip a:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--gold);
 }
 
 /* ZONE 7: Legal */
 .legal {
   position: absolute;
-  bottom: 28px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: 0.65rem;
+  font-weight: 400;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
   white-space: nowrap;
   opacity: 0; /* GSAP */
   z-index: 10;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 /* ═══════════════════════════════════════
