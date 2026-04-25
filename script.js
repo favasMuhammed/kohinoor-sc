@@ -2,148 +2,150 @@
   'use strict';
 
   /* ═══════════════════════════════════════
-     LENIS SMOOTH SCROLL
+     LENIS — Smooth scroll
      ═══════════════════════════════════════ */
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.4,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
   });
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
-  // Sync Lenis with GSAP ScrollTrigger
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
 
   /* ═══════════════════════════════════════
-     GSAP SETUP
+     GSAP
      ═══════════════════════════════════════ */
   gsap.registerPlugin(ScrollTrigger);
 
-  const isTouch = window.matchMedia('(pointer: coarse)').matches;
-
   /* ═══════════════════════════════════════
-     HERO TEXT REVEAL (word-by-word)
+     HERO TEXT SPLIT — Word-by-word reveal
      ═══════════════════════════════════════ */
   const headline = document.getElementById('hero-headline');
 
   if (headline) {
-    // Split text into words, preserving <em> tags
-    const html = headline.innerHTML;
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = html;
-
+    tempDiv.innerHTML = headline.innerHTML;
     let result = '';
+
     function processNode(node) {
       if (node.nodeType === Node.TEXT_NODE) {
-        const words = node.textContent.split(/(\s+)/);
-        words.forEach((w) => {
+        node.textContent.split(/(\s+)/).forEach((w) => {
           if (w.trim()) {
-            result += `<span class="word-mask"><span class="word">${w}</span></span>`;
+            result += '<span class="word-mask"><span class="word">' + w + '</span></span>';
           } else {
             result += w;
           }
         });
       } else if (node.nodeType === Node.ELEMENT_NODE) {
         const tag = node.tagName.toLowerCase();
-        result += `<${tag}>`;
+        result += '<' + tag + '>';
         node.childNodes.forEach(processNode);
-        result += `</${tag}>`;
+        result += '</' + tag + '>';
       }
     }
+
     tempDiv.childNodes.forEach(processNode);
     headline.innerHTML = result;
-
-    // Animate words in
-    gsap.to('.hero-headline .word', {
-      y: 0,
-      duration: 1.4,
-      ease: 'power4.out',
-      stagger: 0.07,
-      delay: 0.6,
-    });
   }
 
   /* ═══════════════════════════════════════
-     SCROLL-TRIGGERED REVEALS
+     HERO TIMELINE — Orchestrated entrance
      ═══════════════════════════════════════ */
-  const reveals = gsap.utils.toArray('.reveal');
+  const heroTl = gsap.timeline({
+    defaults: { ease: 'power3.out' },
+    delay: 0.2,
+  });
 
-  reveals.forEach((el, i) => {
+  heroTl
+    // Logo and tagline
+    .from('.hero-logo', {
+      opacity: 0, y: -25, duration: 0.9,
+    })
+    // Top gold rule draws from center
+    .from('.hero-rule-top', {
+      scaleX: 0, opacity: 0, duration: 0.7,
+    }, '-=0.3')
+    // Headline words cascade up
+    .to('.hero-headline .word', {
+      y: 0, duration: 1.3, stagger: 0.065, ease: 'power4.out',
+    }, '-=0.2')
+    // Bottom gold rule
+    .from('.hero-rule-bottom', {
+      scaleX: 0, opacity: 0, duration: 0.7,
+    }, '-=0.5')
+    // Body text
+    .from('.hero-body', {
+      opacity: 0, y: 28, duration: 1,
+    }, '-=0.3')
+    // CTAs
+    .from('.hero-ctas', {
+      opacity: 0, y: 22, duration: 0.9,
+    }, '-=0.5')
+    // Micro-copy
+    .from('.hero-micro', {
+      opacity: 0, duration: 0.7,
+    }, '-=0.4')
+    // Scroll indicator
+    .from('.scroll-indicator', {
+      opacity: 0, y: -12, duration: 0.8,
+    }, '-=0.3');
+
+  /* ═══════════════════════════════════════
+     SCROLL REVEALS
+     ═══════════════════════════════════════ */
+  gsap.utils.toArray('.reveal').forEach((el) => {
+    // Skip hero elements (handled by timeline)
+    if (el.closest('.hero')) return;
+
     gsap.to(el, {
       scrollTrigger: {
         trigger: el,
-        start: 'top 88%',
+        start: 'top 85%',
         toggleActions: 'play none none none',
       },
       opacity: 1,
       y: 0,
       duration: 1,
       ease: 'power3.out',
-      delay: el.closest('.contact-grid') ? (Array.from(el.parentElement.children).indexOf(el)) * 0.1 : 0,
     });
+
+    // Set initial state for non-hero reveals
+    gsap.set(el, { y: 40 });
   });
 
   /* ═══════════════════════════════════════
-     PARALLAX IMAGE
+     PARALLAX — Showcase image
      ═══════════════════════════════════════ */
   const parallaxImg = document.getElementById('parallax-img');
 
   if (parallaxImg) {
     gsap.to(parallaxImg, {
-      yPercent: 15,
+      yPercent: 12,
       ease: 'none',
       scrollTrigger: {
         trigger: '#showcase',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 0.8,
+        scrub: 1,
       },
     });
   }
 
-
-
   /* ═══════════════════════════════════════
-     HERO OVERLINE + MICRO ENTRANCE
+     SHOWCASE CAPTION — Fade in on scroll
      ═══════════════════════════════════════ */
-  gsap.from('.hero-overline', {
-    opacity: 0, y: 20,
-    duration: 0.8, ease: 'power3.out', delay: 0.3,
-  });
-
-  gsap.from('.hero-divider', {
-    opacity: 0, scaleX: 0,
-    duration: 0.8, ease: 'power3.out', delay: 1.4,
-  });
-
-  gsap.from('.hero-body', {
-    opacity: 0, y: 30,
-    duration: 1, ease: 'power3.out', delay: 1.6,
-  });
-
-  gsap.from('.hero-cta-panel', {
-    opacity: 0, y: 25, scale: 0.97,
-    duration: 0.9, ease: 'power3.out', delay: 1.9,
-  });
-
-  gsap.from('.hero-micro', {
-    opacity: 0, y: 15,
-    duration: 0.7, ease: 'power3.out', delay: 2.2,
-  });
-
-  /* ═══════════════════════════════════════
-     HEADER ENTRANCE
-     ═══════════════════════════════════════ */
-  gsap.from('.header-inner', {
-    opacity: 0, y: -20,
-    duration: 0.9, ease: 'power3.out', delay: 0.1,
+  gsap.from('.showcase-caption', {
+    scrollTrigger: {
+      trigger: '.showcase',
+      start: 'top 40%',
+      toggleActions: 'play none none none',
+    },
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    ease: 'power3.out',
   });
 
 })();

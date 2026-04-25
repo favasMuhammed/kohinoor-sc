@@ -8,146 +8,128 @@
   <meta name="theme-color" content="#2D1B4E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="KC.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-
-  <!-- Grain overlay -->
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- Gold bar -->
+  <!-- Fixed gold accent bar -->
   <div class="top-bar" aria-hidden="true"></div>
 
-  <!-- ═══ HEADER ═══ -->
-  <header class="header">
-    <div class="container">
-      <div class="header-inner">
-        <img src="KC.png" alt="Kohinoor Caterer" class="logo" width="140">
-        <div class="header-divider" aria-hidden="true"></div>
-        <p class="header-tagline">Leicester · Premium Catering</p>
-      </div>
-    </div>
-  </header>
-
-  <!-- ═══ HERO ═══ -->
+  <!-- ═══════════════════════════════════
+       HERO — Full viewport
+       ═══════════════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="orb orb-purple" aria-hidden="true"></div>
-    <div class="orb orb-gold" aria-hidden="true"></div>
 
-    <svg class="hero-ornament" viewBox="0 0 800 800" aria-hidden="true">
-      <g fill="none" stroke="#2D1B4E" stroke-width="0.5">
-        <rect x="300" y="300" width="200" height="200" rx="2" transform="rotate(45,400,400)"/>
-        <rect x="225" y="225" width="350" height="350" rx="2" transform="rotate(45,400,400)"/>
-        <rect x="150" y="150" width="500" height="500" rx="2" transform="rotate(45,400,400)"/>
-        <circle cx="400" cy="400" r="100"/>
-        <circle cx="400" cy="400" r="200"/>
-        <circle cx="400" cy="400" r="320"/>
-        <line x1="400" y1="50" x2="400" y2="750"/>
-        <line x1="50" y1="400" x2="750" y2="400"/>
-        <line x1="130" y1="130" x2="670" y2="670"/>
-        <line x1="670" y1="130" x2="130" y2="670"/>
-      </g>
-    </svg>
-
-    <div class="container">
-      <div class="hero-content">
-        <p class="hero-overline reveal">A Premium New Website Is on Its Way</p>
-
-        <h1 class="hero-headline" id="hero-headline">
-          A New Standard of Catering Is <em>Coming Soon</em>
-        </h1>
-
-        <div class="hero-divider reveal" aria-hidden="true">
-          <span class="divider-line"></span>
-          <span class="divider-diamond">◆</span>
-          <span class="divider-line"></span>
-        </div>
-
-        <p class="hero-body reveal">
-          Kohinoor Caterer is preparing a refined new online experience — one that reflects the elegance, care, and attention to detail behind every event we serve. From weddings and private celebrations to beautifully presented occasions, our team continues to welcome enquiries while our new website is on its way.
-        </p>
-
-        <div class="hero-cta-panel reveal">
-          <a href="tel:07777246444" class="btn btn-primary" id="cta-call">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call Now
-          </a>
-          <a href="mailto:sales@kohinoorcaterer.com" class="btn btn-outline" id="cta-email">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Email Us
-          </a>
-        </div>
-
-        <p class="hero-micro reveal">Now taking enquiries for weddings, private events &amp; special occasions</p>
-      </div>
+    <div class="hero-logo">
+      <img src="KC.png" alt="Kohinoor Caterer" class="logo" width="200">
+      <p class="hero-tagline">Leicester · Premium Catering</p>
     </div>
+
+    <div class="gold-rule hero-rule-top reveal" aria-hidden="true"></div>
+
+    <h1 class="hero-headline" id="hero-headline">
+      A New Standard of Catering Is <em>Coming Soon</em>
+    </h1>
+
+    <div class="gold-rule hero-rule-bottom reveal" aria-hidden="true"></div>
+
+    <p class="hero-body reveal">
+      Kohinoor Caterer is preparing a refined new online experience — one that reflects the elegance, care, and attention to detail behind every event we serve. From weddings and private celebrations to beautifully presented occasions, our team continues to welcome enquiries while our new website is on its way.
+    </p>
+
+    <div class="hero-ctas reveal">
+      <a href="tel:07777246444" class="btn btn-primary" id="cta-call">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Now
+      </a>
+      <a href="mailto:sales@kohinoorcaterer.com" class="btn btn-outline" id="cta-email">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email Us
+      </a>
+    </div>
+
+    <p class="hero-micro reveal">Now taking enquiries for weddings, private events &amp; special occasions</p>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator reveal" aria-hidden="true">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
   </section>
 
-  <!-- ═══ SHOWCASE IMAGE ═══ -->
-  <section class="showcase reveal" id="showcase">
+  <!-- ═══════════════════════════════════
+       SHOWCASE — Cinematic full-width image
+       ═══════════════════════════════════ -->
+  <section class="showcase" id="showcase">
     <div class="showcase-inner" id="parallax-img">
       <img src="images/hero.png" alt="Elegantly presented catering — fine dining, gourmet platters and crystal service by Kohinoor Caterer">
     </div>
-    <p class="showcase-caption">Crafting memorable occasions with care and refinement</p>
+    <div class="showcase-overlay" aria-hidden="true"></div>
+    <p class="showcase-caption reveal">Crafting memorable occasions with care and refinement</p>
   </section>
 
-  <!-- ═══ SERVICES ═══ -->
-  <section class="services">
-    <div class="container">
-      <div class="services-strip reveal">
-        <span>Weddings</span><span class="dot">·</span>
-        <span>Private Events</span><span class="dot">·</span>
-        <span>Corporate Catering</span><span class="dot">·</span>
-        <span>Celebrations</span><span class="dot">·</span>
-        <span>Afternoon Tea</span>
-      </div>
-    </div>
+  <!-- ═══════════════════════════════════
+       SERVICES
+       ═══════════════════════════════════ -->
+  <section class="services" id="services">
+    <ul class="services-list reveal">
+      <li>Weddings</li>
+      <li class="sep" aria-hidden="true">◆</li>
+      <li>Private Events</li>
+      <li class="sep" aria-hidden="true">◆</li>
+      <li>Corporate Catering</li>
+      <li class="sep" aria-hidden="true">◆</li>
+      <li>Celebrations</li>
+      <li class="sep" aria-hidden="true">◆</li>
+      <li>Afternoon Tea</li>
+    </ul>
   </section>
 
-  <!-- ═══ CONTACT ═══ -->
+  <!-- ═══════════════════════════════════
+       CONTACT
+       ═══════════════════════════════════ -->
   <section class="contact" id="contact">
     <div class="container">
-      <p class="section-label reveal">For Bookings &amp; Enquiries</p>
-      <div class="contact-grid">
-        <a href="tel:07777246444" class="contact-card reveal" id="contact-mobile">
+      <p class="contact-heading reveal">For Bookings &amp; Enquiries</p>
+      <div class="contact-grid reveal">
+        <a href="tel:07777246444" class="contact-item" id="contact-mobile">
           <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-          <p class="contact-type">Mobile</p>
+          <p class="contact-label">Mobile</p>
           <p class="contact-value">07777 246 444</p>
         </a>
-        <a href="tel:01162551300" class="contact-card reveal" id="contact-landline">
+        <a href="tel:01162551300" class="contact-item" id="contact-landline">
           <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <p class="contact-type">Landline</p>
+          <p class="contact-label">Landline</p>
           <p class="contact-value">0116 255 1300</p>
         </a>
-        <a href="mailto:sales@kohinoorcaterer.com" class="contact-card reveal" id="contact-email-card">
+        <a href="mailto:sales@kohinoorcaterer.com" class="contact-item" id="contact-email-card">
           <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
-          <p class="contact-type">Email</p>
+          <p class="contact-label">Email</p>
           <p class="contact-value">sales@kohinoorcaterer.com</p>
         </a>
-        <div class="contact-card reveal" id="contact-address">
+        <div class="contact-item" id="contact-address">
           <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <p class="contact-type">Visit Us</p>
+          <p class="contact-label">Address</p>
           <p class="contact-value">61 London Road<br>Leicester, LE2 0PE</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ FOOTER ═══ -->
+  <!-- ═══════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════ -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-line" aria-hidden="true"></div>
-      <div class="footer-content">
-        <p class="footer-legal">Indian Kohinoor Food Ltd (09070285) trading as Kohinoor Caterer</p>
-        <p class="footer-copy">&copy; 2026 Kohinoor Caterer. All rights reserved.</p>
-      </div>
+      <div class="footer-rule" aria-hidden="true"></div>
+      <p class="footer-legal">Indian Kohinoor Food Ltd (09070285) trading as Kohinoor Caterer</p>
+      <p class="footer-copy">&copy; 2026 Kohinoor Caterer. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Libraries -->
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
