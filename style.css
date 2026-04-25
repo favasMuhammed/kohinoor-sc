@@ -43,11 +43,11 @@ a { color: inherit; text-decoration: none; }
    LEFT PANEL (Typography & Info)
    ═══════════════════════════════════════ */
 .panel-info {
-  flex: 0 0 50%;
+  flex: 0 0 45%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3vw 4vw;
+  padding: 4vw 5vw;
   position: relative;
   z-index: 10;
 }
@@ -60,15 +60,7 @@ a { color: inherit; text-decoration: none; }
 }
 .logo {
   filter: brightness(0) invert(1) contrast(200%);
-  width: 140px;
-}
-.tagline {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold);
+  width: 160px;
 }
 
 /* Main Content */
@@ -88,12 +80,12 @@ a { color: inherit; text-decoration: none; }
 
 .headline {
   font-family: var(--serif);
-  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-size: clamp(4rem, 7vw, 7.5rem);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1;
   letter-spacing: -0.02em;
   color: var(--white);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 .headline em {
   font-style: italic;
@@ -194,7 +186,7 @@ a { color: inherit; text-decoration: none; }
    RIGHT PANEL (Image)
    ═══════════════════════════════════════ */
 .panel-visual {
-  flex: 0 0 50%;
+  flex: 0 0 55%;
   position: relative;
   overflow: hidden;
 }
