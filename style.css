@@ -46,7 +46,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 4vw 5vw;
+  padding: 2vw 5vw 4vw;
   position: relative;
   z-index: 10;
 }
@@ -216,7 +216,7 @@ a { color: inherit; text-decoration: none; }
    ═══════════════════════════════════════ */
 @media (max-width: 1200px) {
   .headline { font-size: 4rem; }
-  .panel-info { padding: 4vw; }
+  .panel-info { padding: 2vw 4vw 4vw; }
 }
 
 @media (max-width: 992px) {
@@ -235,7 +235,7 @@ a { color: inherit; text-decoration: none; }
   
   .panel-info {
     flex: 1;
-    padding: 3rem 2rem;
+    padding: 1.5rem 2rem 3rem;
   }
   
   .headline { font-size: clamp(3rem, 8vw, 4rem); }
@@ -247,7 +247,7 @@ a { color: inherit; text-decoration: none; }
   }
 
   .panel-info {
-    padding: 2.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 2.5rem;
   }
   
   .info-top { 
