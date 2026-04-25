@@ -202,11 +202,9 @@ a { color: inherit; text-decoration: none; }
 .image-wrapper {
   width: 100%;
   height: 100%;
-  transform: scale(1.1); /* Start slightly scaled for animation */
-  transform-origin: center center;
 }
 
-.image-wrapper img {
+.image-wrapper video {
   width: 100%;
   height: 100%;
   object-fit: cover;

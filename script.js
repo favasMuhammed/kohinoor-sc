@@ -13,11 +13,12 @@
   gsap.set('.headline', { opacity: 0, y: 40 });
 
   tl
-    // Start continuous slow zoom on image
-    .to('.image-wrapper', {
-      scale: 1,
-      duration: 3,
-      ease: 'power2.out'
+    // Fade in cinematic video panel
+    .to('.panel-visual', {
+      opacity: 1,
+      y: 0,
+      duration: 1.5,
+      ease: 'power3.out'
     }, 0)
     // Fade in top info
     .to('.info-top', {
