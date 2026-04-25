@@ -46,7 +46,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2vw 5vw 4vw;
+  padding: 3rem 4rem;
   position: relative;
   z-index: 10;
 }
@@ -81,7 +81,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--serif);
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 500;
-  line-height: 1.05;
+  line-height: 0.95;
   letter-spacing: -0.02em;
   color: var(--white);
   margin-bottom: 2rem;
@@ -179,8 +179,9 @@ a { color: inherit; text-decoration: none; }
 .legal-footer {
   display: flex;
   justify-content: space-between;
-  font-size: 0.65rem;
-  color: var(--grey-400);
+  font-size: 0.75rem;
+  color: var(--grey-300);
+  margin-top: 1rem;
 }
 
 /* ═══════════════════════════════════════
@@ -203,12 +204,9 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
 }
 
-/* Subtle gradient overlay to ensure image blends well */
+/* Removed gradient overlay for a clean editorial edge */
 .visual-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--purple) 0%, rgba(45,27,78,0) 15%);
-  pointer-events: none;
+  display: none;
 }
 
 /* ═══════════════════════════════════════
@@ -216,7 +214,7 @@ a { color: inherit; text-decoration: none; }
    ═══════════════════════════════════════ */
 @media (max-width: 1200px) {
   .headline { font-size: 4rem; }
-  .panel-info { padding: 2vw 4vw 4vw; }
+  .panel-info { padding: 3rem; }
 }
 
 @media (max-width: 992px) {
@@ -235,7 +233,7 @@ a { color: inherit; text-decoration: none; }
   
   .panel-info {
     flex: 1;
-    padding: 1.5rem 2rem 3rem;
+    padding: 3rem 2rem;
   }
   
   .headline { font-size: clamp(3rem, 8vw, 4rem); }
@@ -247,7 +245,7 @@ a { color: inherit; text-decoration: none; }
   }
 
   .panel-info {
-    padding: 1.5rem 1.5rem 2.5rem;
+    padding: 2.5rem 1.5rem;
   }
   
   .info-top { 
