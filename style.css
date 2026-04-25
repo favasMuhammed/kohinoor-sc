@@ -143,11 +143,11 @@ a:focus-visible {
 }
 .hero-line {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(1.8rem, 3.2vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--white);
 }
 /* Splitting.js for words */
 .hero-line .word { display: inline-block; }
@@ -161,10 +161,10 @@ a:focus-visible {
 
 .hero-sub {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   margin-top: 12px;
   text-transform: uppercase;
   opacity: 0; /* GSAP */
@@ -305,10 +305,10 @@ a:focus-visible {
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--sans);
-  font-weight: 200;
-  font-size: 0.54rem;
+  font-weight: 300;
+  font-size: 0.65rem;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
   white-space: nowrap;
   opacity: 0; /* GSAP */
   z-index: 10;

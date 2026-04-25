@@ -87,28 +87,28 @@ const init = () => {
       // 0.0s — Cinematic video fades in
       .to('.ambient-video', { opacity: 1, duration: 2 }, 0)
 
-      // 0.6s — Logo mark descends
-      .to('.logo-mark', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: -20, scale: 0.9 } }, 0.6)
+      // 0.5s — Logo mark descends
+      .to('.logo-mark', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: -20, scale: 0.9 } }, 0.5)
 
-      // 1.5s — Ornament divider draws itself
-      .to('.divider-line-left', { strokeDashoffset: 0, duration: 0.7 }, 1.5)
-      .to('.divider-line-right', { strokeDashoffset: 0, duration: 0.7 }, 1.5)
-      .to('.divider-diamond', { scale: 1, duration: 0.5, ease: "back.out(3)", startAt: { scale: 0, transformOrigin: "50% 50%" } }, 1.9)
+      // 1.1s — Ornament divider draws itself
+      .to('.divider-line-left', { strokeDashoffset: 0, duration: 0.7 }, 1.1)
+      .to('.divider-line-right', { strokeDashoffset: 0, duration: 0.7 }, 1.1)
+      .to('.divider-diamond', { scale: 1, duration: 0.5, ease: "back.out(3)", startAt: { scale: 0, transformOrigin: "50% 50%" } }, 1.4)
 
-      // 2.0s — Hero line words
-      .to('.hero-line .word', { opacity: 1, y: 0, stagger: 0.07, duration: 0.9, startAt: { opacity: 0, y: 20 } }, 2.0)
+      // 1.4s — Hero line words
+      .to('.hero-line .word', { opacity: 1, y: 0, stagger: 0.07, duration: 0.9, startAt: { opacity: 0, y: 20 } }, 1.4)
 
-      // 2.5s — Sub-descriptor
-      .to('.hero-sub', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 2.5)
+      // 1.9s — Sub-descriptor
+      .to('.hero-sub', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 1.9)
 
-      // 2.8s — Glass CTA surface rises
-      .to('.cta-surface', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: 30, scale: 0.97 } }, 2.8)
+      // 2.2s — Glass CTA surface rises
+      .to('.cta-surface', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: 30, scale: 0.97 } }, 2.2)
 
-      // 3.2s — Contact strip
-      .to('.contact-strip', { opacity: 1, y: 0, duration: 0.8, startAt: { y: 12 } }, 3.2)
+      // 2.5s — Contact strip
+      .to('.contact-strip', { opacity: 1, y: 0, duration: 0.8, startAt: { y: 12 } }, 2.5)
 
-      // 3.5s — Legal
-      .to('.legal', { opacity: 1, duration: 0.8 }, 3.5);
+      // 2.8s — Legal
+      .to('.legal', { opacity: 1, duration: 0.8 }, 2.8);
 
   }, 100);
 
