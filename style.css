@@ -178,6 +178,12 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.95rem;
   color: var(--off-white);
 }
+.link-hover {
+  transition: color 0.3s var(--ease);
+}
+.link-hover:hover {
+  color: var(--gold);
+}
 
 .legal-footer {
   display: flex;
