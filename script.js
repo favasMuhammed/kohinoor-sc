@@ -3,8 +3,8 @@
    Tech: GSAP, Three.js, Lenis, Splitting
    ═══════════════════════════════════════ */
 
-document.addEventListener("DOMContentLoaded", () => {
-  
+const init = () => {
+
   // 1. Initialise Lenis Smooth Scroll
   const lenis = new Lenis({
     duration: 1.4,
@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Custom Cursor Logic (Desktop Only)
   const cursor = document.querySelector('.cursor');
   const isTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
-  
+
   if (!isTouchDevice) {
     // GSAP quickTo for smooth cursor follow
-    const xTo = gsap.quickTo(cursor, "x", {duration: 0.35, ease: "power3"});
-    const yTo = gsap.quickTo(cursor, "y", {duration: 0.35, ease: "power3"});
+    const xTo = gsap.quickTo(cursor, "x", { duration: 0.35, ease: "power3" });
+    const yTo = gsap.quickTo(cursor, "y", { duration: 0.35, ease: "power3" });
 
     window.addEventListener("mousemove", (e) => {
       xTo(e.clientX);
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(cursor, { scale: 1, backgroundColor: 'transparent', borderColor: '#C9A84C', duration: 0.3 });
       });
     });
-    
+
     window.addEventListener('mousedown', () => gsap.to(cursor, { scale: 0.8, duration: 0.1 }));
     window.addEventListener('mouseup', () => gsap.to(cursor, { scale: 1, duration: 0.1 }));
   }
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tl
       // 0.0s — Page starts dark (body opacity 0 -> 1)
       .to('body', { opacity: 1, duration: 0.1 })
-      
+
       // 0.0s — Three.js canvas fades in
       .to('#ambient-canvas', { opacity: 1, duration: 2 }, 0)
 
@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // 0.8s — KOHINOOR chars shatter in
       .to('.brand-name .char', {
-        opacity: 1, 
-        y: 0, 
-        rotateX: 0, 
-        stagger: 0.055, 
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        stagger: 0.055,
         duration: 1.1,
         startAt: { opacity: 0, y: 80, rotateX: -50 },
         transformOrigin: "0% 50% -80px"
@@ -127,8 +127,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }, 100);
 
-});
+}; // End of init function
 
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 // ─────────────────────────────────────────────────────────
 // Three.js Logic 
 // ─────────────────────────────────────────────────────────
@@ -137,7 +142,7 @@ function initThreeJS() {
   if (!canvas) return;
 
   const scene = new THREE.Scene();
-  
+
   // Use Orthographic camera so it perfectly maps to viewport without perspective distortion on edges
   const width = window.innerWidth;
   const height = window.innerHeight;
@@ -154,9 +159,9 @@ function initThreeJS() {
   if (width < 600) particleCount = 80;
 
   const particles = [];
-  const particleMaterial = new THREE.MeshBasicMaterial({ 
-    color: 0xC9A84C, 
-    transparent: true, 
+  const particleMaterial = new THREE.MeshBasicMaterial({
+    color: 0xC9A84C,
+    transparent: true,
     opacity: 0.6,
     side: THREE.DoubleSide
   });
@@ -177,12 +182,12 @@ function initThreeJS() {
 
   for (let i = 0; i < particleCount; i++) {
     const mesh = new THREE.Mesh(geom, particleMaterial.clone());
-    
+
     // Spread across viewport
     mesh.position.x = (Math.random() - 0.5) * width;
     mesh.position.y = (Math.random() - 0.5) * height;
     mesh.position.z = (Math.random() - 0.5) * 5;
-    
+
     // Randomize initial rotation and opacity
     mesh.rotation.z = Math.random() * Math.PI;
     mesh.material.opacity = 0.2 + Math.random() * 0.5;
@@ -206,10 +211,10 @@ function initThreeJS() {
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
-      
+
       // Upward drift
       p.position.y += p.userData.speedY;
-      
+
       // If it goes off top, reset to bottom
       if (p.position.y > height / 2 + 10) {
         p.position.y = -height / 2 - 10;
@@ -232,13 +237,13 @@ function initThreeJS() {
   window.addEventListener('resize', () => {
     const newW = window.innerWidth;
     const newH = window.innerHeight;
-    
+
     camera.left = newW / -2;
     camera.right = newW / 2;
     camera.top = newH / 2;
     camera.bottom = newH / -2;
     camera.updateProjectionMatrix();
-    
+
     renderer.setSize(newW, newH);
   });
 }
