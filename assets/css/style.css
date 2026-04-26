@@ -33,6 +33,8 @@ body {
   height: 100vh;
   height: 100svh;
   opacity: 0; /* GSAP master timeline will fade this in */
+  display: flex;
+  flex-direction: column;
 }
 
 /* SVG Noise Grain Overlay - The Awwwards Detail */
@@ -110,10 +112,12 @@ a:focus-visible {
   position: relative;
   z-index: 10;
   width: 100%;
-  height: 100%;
-  display: grid;
-  place-content: center;
-  place-items: center;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
 }
 
 .zone {
@@ -257,27 +261,158 @@ a:focus-visible {
 
 .cta-right {
   z-index: 2;
-  perspective: 500px;
 }
+
+/* ── Enquire Button: Premium Shimmer + Glow ── */
 .enquire-btn {
-  background: var(--gold);
+  background: linear-gradient(135deg, var(--gold) 0%, #E2C96D 50%, var(--gold) 100%);
+  background-size: 200% 200%;
   color: var(--purple);
   font-family: var(--sans);
   font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  padding: 1.2rem 2.2rem;
+  padding: 1.2rem 2.4rem 1.2rem 2.2rem;
   border-radius: 30px;
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 4px 20px rgba(201, 168, 76, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition:
+    box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-position 0.6s ease;
+  will-change: transform, box-shadow;
 }
+
+/* Shimmer sweep layer */
+.enquire-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 70%
+  );
+  z-index: 1;
+  transition: none;
+}
+
+/* Glow ring behind button */
+.enquire-btn::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 34px;
+  background: linear-gradient(135deg, var(--gold), #E2C96D, var(--gold));
+  opacity: 0;
+  z-index: -1;
+  filter: blur(12px);
+  transition: opacity 0.4s ease;
+}
+
+/* Arrow icon */
+.enquire-btn .btn-arrow {
+  display: inline-flex;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.enquire-btn .btn-arrow svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--purple);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Hover state */
 .enquire-btn:hover {
-  background: #B8963E;
-  box-shadow: 0 12px 32px rgba(201,168,76,0.4);
+  transform: translateY(-2px);
+  background-position: 100% 0;
+  box-shadow:
+    0 8px 32px rgba(201, 168, 76, 0.45),
+    0 0 60px rgba(201, 168, 76, 0.15);
+}
+.enquire-btn:hover::before {
+  animation: shimmerSweep 0.8s ease forwards;
+}
+.enquire-btn:hover::after {
+  opacity: 0.6;
+}
+.enquire-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Active press */
+.enquire-btn:active {
+  transform: translateY(0px) scale(0.97);
+  box-shadow: 0 2px 12px rgba(201, 168, 76, 0.3);
+}
+
+/* Idle breathing glow animation */
+@keyframes shimmerSweep {
+  0%   { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes breatheGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(201,168,76,0.2); }
+  50%      { box-shadow: 0 4px 28px rgba(201,168,76,0.35), 0 0 40px rgba(201,168,76,0.1); }
+}
+
+.enquire-btn {
+  animation: breatheGlow 3s ease-in-out infinite;
+}
+
+/* JS-triggered periodic shimmer */
+.enquire-btn.shimmer-active::before {
+  animation: shimmerSweep 0.8s ease forwards;
+}
+
+/* ── Floating Aura Particles behind CTA ── */
+.cta-aura {
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 30px;
+}
+.cta-aura span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatParticle 4s ease-in-out infinite;
+}
+.cta-aura span:nth-child(1) { left: 10%; top: 30%; animation-delay: 0s; }
+.cta-aura span:nth-child(2) { left: 25%; top: 70%; animation-delay: 0.8s; width: 3px; height: 3px; }
+.cta-aura span:nth-child(3) { left: 50%; top: 20%; animation-delay: 1.6s; }
+.cta-aura span:nth-child(4) { left: 75%; top: 60%; animation-delay: 2.4s; width: 3px; height: 3px; }
+.cta-aura span:nth-child(5) { left: 90%; top: 40%; animation-delay: 3.2s; width: 2px; height: 2px; }
+.cta-aura span:nth-child(6) { left: 40%; top: 80%; animation-delay: 1.2s; width: 2px; height: 2px; }
+
+@keyframes floatParticle {
+  0%   { opacity: 0; transform: translateY(0) scale(0.5); }
+  25%  { opacity: 0.6; }
+  50%  { opacity: 0.3; transform: translateY(-20px) scale(1); }
+  75%  { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-40px) scale(0.5); }
 }
 
 /* ZONE 6: Contact Strip */
@@ -304,10 +439,9 @@ a:focus-visible {
 
 /* ZONE 7: Legal */
 .legal {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  flex-shrink: 0;
+  padding: 16px 24px;
+  text-align: center;
   font-family: var(--sans);
   font-weight: 400;
   font-size: 0.7rem;
@@ -355,17 +489,42 @@ a:focus-visible {
     gap: 8px;
   }
   .desktop-only { display: none; }
+
+  .zone-1 { margin-bottom: 16px; }
+  .zone-3 { margin-bottom: 14px; }
+  .zone-4 { margin-bottom: 24px; }
+  .zone-5 { margin-bottom: 24px; }
+
+  .legal {
+    padding: 12px 16px;
+    white-space: normal;
+    font-size: 0.6rem;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 599px) {
-  .logo-mark { width: 180px; }
-  .viewport-container { padding: 0 24px; }
-  .zone-1 { margin-bottom: 24px; }
-  .zone-4 { margin-bottom: 24px; }
+  .logo-mark { width: 160px; }
+  .viewport-container { padding: 0 20px; }
+  .zone-1 { margin-bottom: 12px; }
+  .zone-3 { margin-bottom: 10px; }
+  .zone-4 { margin-bottom: 20px; }
+  .zone-5 { margin-bottom: 16px; }
+
+  .hero-line { font-size: clamp(1.5rem, 5.5vw, 2rem); }
+  .hero-sub { font-size: 0.7rem; margin-top: 8px; }
+
+  .cta-surface { padding: 24px 20px; gap: 16px; }
+  .enquire-btn { padding: 1rem 1.8rem; font-size: 0.7rem; }
 }
 
 @media (max-width: 374px) {
-  .hero-line { font-size: 1.6rem; }
+  .hero-line { font-size: 1.4rem; }
+  .hero-sub { font-size: 0.6rem; letter-spacing: 0.04em; }
+  .logo-mark { width: 140px; }
+  .cta-phone { font-size: 1rem; }
+  .cta-email { font-size: 0.75rem; }
+  .micro-label { font-size: 0.55rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

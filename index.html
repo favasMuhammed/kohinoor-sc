@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kohinoor Caterer — Leicester's Premium South Asian Catering | Coming Soon</title>
-  <meta name="description" content="Kohinoor Caterer — Leicester's finest South Asian catering for weddings, corporate events and celebrations. A new experience is coming. Call 07777 246 444.">
+
+  <!-- Primary Meta Tags -->
+  <title>Kohinoor Caterer — Midlands Premium Asian Catering | Coming Soon</title>
+  <meta name="description" content="Kohinoor Caterer — Midlands premier Asian catering for weddings, corporate events and celebrations. A new experience is coming. Call 07777 246 444.">
   <meta name="keywords" content="catering Leicester, South Asian catering, wedding caterer Leicester, Indian catering UK, Kohinoor Caterer, Asian wedding food, corporate catering Leicester, buffet catering Midlands">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#2A1050">
   <link rel="canonical" href="https://www.kohinoorcaterer.com/">
-  
+
+  <!-- Open Graph / Social -->
   <meta property="og:title" content="Kohinoor Caterer — Coming Soon">
-  <meta property="og:description" content="Something magnificent is being prepared. Leicester's premier South Asian catering.">
+  <meta property="og:description" content="Something magnificent is being prepared. Midlands premier Asian catering.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.kohinoorcaterer.com/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kohinoor Caterer — Coming Soon">
 
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FoodEstablishment",
     "name": "Kohinoor Caterer",
-    "image": "https://www.kohinoorcaterer.com/KC.png",
+    "image": "https://www.kohinoorcaterer.com/assets/images/KC.png",
     "description": "Premium South Asian catering for weddings, corporate events and private celebrations in Leicester and the Midlands.",
     "address": {
       "@type": "PostalAddress",
@@ -39,9 +43,14 @@
   }
   </script>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="KC.png">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/KC.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -49,19 +58,18 @@
   <div class="cursor"></div>
 
   <!-- Ambient Cinematic Video Background -->
-  <video class="ambient-video" autoplay loop muted playsinline poster="IMG_4219-scaled.webp">
-    <source src="An-Najeebkohinoor-1.mp4" type="video/mp4">
+  <video class="ambient-video" autoplay loop muted playsinline poster="assets/images/IMG_4219-scaled.webp">
+    <source src="assets/video/An-Najeebkohinoor-1.mp4" type="video/mp4">
   </video>
   <div class="video-overlay"></div>
 
+  <!-- Main Content -->
   <main class="viewport-container">
     
     <!-- ZONE 1: Logo Mark -->
     <header class="zone zone-1">
-      <img src="KC.png" class="logo-mark" alt="Kohinoor Caterer">
+      <img src="assets/images/KohinoorCaterer.svg" class="logo-mark" alt="Kohinoor Caterer">
     </header>
-
-    <!-- ZONE 2 removed as it is redundant with the logo text -->
 
     <!-- ZONE 3: Ornamental Divider -->
     <div class="zone zone-3">
@@ -75,12 +83,17 @@
     <!-- ZONE 4: Hero Line -->
     <section class="zone zone-4">
       <h2 class="hero-line">Something <em class="gold-italic">magnificent</em> is being prepared</h2>
-      <p class="hero-sub">Leicester's premier South Asian catering <span class="gold-dot">·</span> Weddings <span class="gold-dot">·</span> Events <span class="gold-dot">·</span> Celebrations</p>
+      <p class="hero-sub">Midlands premier Asian catering <span class="gold-dot">·</span> Weddings <span class="gold-dot">·</span> Events <span class="gold-dot">·</span> Celebrations</p>
     </section>
 
     <!-- ZONE 5: Liquid Glass CTA -->
     <section class="zone zone-5">
       <div class="cta-surface">
+        <!-- Floating aura particles -->
+        <div class="cta-aura">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
         <div class="cta-left">
           <span class="micro-label">GET IN TOUCH</span>
           <a href="tel:07777246444" class="cta-phone" aria-label="Call us">07777 246 444</a>
@@ -88,7 +101,12 @@
         </div>
         <div class="cta-separator"></div>
         <div class="cta-right">
-          <a href="mailto:sales@kohinoorcaterer.com" class="enquire-btn">Enquire Now</a>
+          <a href="mailto:sales@kohinoorcaterer.com" class="enquire-btn">
+            Enquire Now
+            <span class="btn-arrow">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>
@@ -104,7 +122,7 @@
 
   </main>
 
-  <!-- ZONE 7: Legal Pinned -->
+  <!-- ZONE 7: Legal Footer -->
   <footer class="legal">
     Indian Kohinoor Food Ltd (09070285) trading as Kohinoor Caterer <span class="gold-dot">·</span> &copy; 2026
   </footer>
@@ -112,8 +130,9 @@
   <!-- Dependencies -->
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <!-- Splitting.js for character splitting -->
   <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
-  <script src="script.js"></script>
+
+  <!-- App Script -->
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

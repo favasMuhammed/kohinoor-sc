@@ -54,23 +54,26 @@ const init = () => {
     window.addEventListener('mouseup', () => gsap.to(cursor, { scale: 1, duration: 0.1 }));
   }
 
-  // 4. Magnetic Button Logic
+  // 4. Periodic Shimmer Sweep on CTA Button
   const btn = document.querySelector('.enquire-btn');
-  if (btn && !isTouchDevice && window.innerWidth > 768) {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      gsap.to(btn, {
-        x: x * 0.35,
-        y: y * 0.35,
-        duration: 0.4,
-        ease: "power2.out"
-      });
-    });
-    btn.addEventListener('mouseleave', () => {
-      gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.5)" });
-    });
+  if (btn) {
+    // Trigger the shimmer sweep periodically for a premium idle glow
+    const triggerShimmer = () => {
+      const shimmer = btn.querySelector('::before'); // CSS handles via animation
+      btn.classList.remove('shimmer-active');
+      void btn.offsetWidth; // Force reflow
+      btn.classList.add('shimmer-active');
+    };
+
+    // Auto-shimmer every 4 seconds after initial page load
+    setTimeout(() => {
+      setInterval(() => {
+        if (!btn.matches(':hover')) {
+          btn.classList.add('shimmer-active');
+          setTimeout(() => btn.classList.remove('shimmer-active'), 800);
+        }
+      }, 4000);
+    }, 3500); // Start after entrance animations complete
   }
 
   // 5. Removed Three.js ambient field (replaced with cinematic video)
