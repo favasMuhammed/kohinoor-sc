@@ -41,12 +41,19 @@ const init = () => {
 
     // Hover states for cursor
     const interactables = document.querySelectorAll('a, button');
+    const enquireBtn = document.querySelector('.enquire-btn');
+
     interactables.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { scale: 2.5, backgroundColor: 'rgba(201,168,76,0.1)', borderColor: '#FFFFFF', duration: 0.3 });
+        if (el === enquireBtn || el.closest('.enquire-btn')) {
+          // CTA button: cursor fades out so the button glow takes focus
+          gsap.to(cursor, { scale: 0.4, opacity: 0, duration: 0.3 });
+        } else {
+          gsap.to(cursor, { scale: 2.5, backgroundColor: 'rgba(201,168,76,0.1)', borderColor: '#FFFFFF', duration: 0.3 });
+        }
       });
       el.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { scale: 1, backgroundColor: 'transparent', borderColor: '#C9A84C', duration: 0.3 });
+        gsap.to(cursor, { scale: 1, opacity: 1, backgroundColor: 'transparent', borderColor: '#C9A84C', duration: 0.3 });
       });
     });
 

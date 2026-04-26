@@ -263,7 +263,7 @@ a:focus-visible {
   z-index: 2;
 }
 
-/* ── Enquire Button: Premium Shimmer + Glow ── */
+/* ── Enquire Button: Premium Shimmer + Layered Glow ── */
 .enquire-btn {
   background: linear-gradient(135deg, var(--gold) 0%, #E2C96D 50%, var(--gold) 100%);
   background-size: 200% 200%;
@@ -281,14 +281,16 @@ a:focus-visible {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow:
-    0 4px 20px rgba(201, 168, 76, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 2px 8px rgba(201, 168, 76, 0.15),
+    0 4px 16px rgba(201, 168, 76, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition:
-    box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background-position 0.6s ease;
+    box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-position 0.6s ease,
+    border-color 0.4s ease;
   will-change: transform, box-shadow;
 }
 
@@ -303,24 +305,11 @@ a:focus-visible {
   background: linear-gradient(
     105deg,
     transparent 30%,
-    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.35) 50%,
     transparent 70%
   );
   z-index: 1;
   transition: none;
-}
-
-/* Glow ring behind button */
-.enquire-btn::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 34px;
-  background: linear-gradient(135deg, var(--gold), #E2C96D, var(--gold));
-  opacity: 0;
-  z-index: -1;
-  filter: blur(12px);
-  transition: opacity 0.4s ease;
 }
 
 /* Arrow icon */
@@ -338,43 +327,59 @@ a:focus-visible {
   stroke-linejoin: round;
 }
 
-/* Hover state */
+/* Hover state — luxurious multi-layered diffused aura */
 .enquire-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
   background-position: 100% 0;
+  border-color: rgba(255, 255, 255, 0.35);
   box-shadow:
-    0 8px 32px rgba(201, 168, 76, 0.45),
-    0 0 60px rgba(201, 168, 76, 0.15);
+    0 4px 12px rgba(201, 168, 76, 0.25),
+    0 8px 25px rgba(201, 168, 76, 0.2),
+    0 16px 48px rgba(201, 168, 76, 0.15),
+    0 24px 72px rgba(201, 168, 76, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .enquire-btn:hover::before {
   animation: shimmerSweep 0.8s ease forwards;
-}
-.enquire-btn:hover::after {
-  opacity: 0.6;
 }
 .enquire-btn:hover .btn-arrow {
   transform: translateX(4px);
 }
 
-/* Active press */
+/* Active press — satisfying tactile feedback */
 .enquire-btn:active {
-  transform: translateY(0px) scale(0.97);
-  box-shadow: 0 2px 12px rgba(201, 168, 76, 0.3);
+  transform: translateY(-1px) scale(0.98);
+  box-shadow:
+    0 2px 8px rgba(201, 168, 76, 0.2),
+    0 4px 16px rgba(201, 168, 76, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition-duration: 0.1s;
 }
 
-/* Idle breathing glow animation */
+/* Keyframes */
 @keyframes shimmerSweep {
   0%   { left: -100%; }
   100% { left: 100%; }
 }
 
 @keyframes breatheGlow {
-  0%, 100% { box-shadow: 0 4px 20px rgba(201,168,76,0.2); }
-  50%      { box-shadow: 0 4px 28px rgba(201,168,76,0.35), 0 0 40px rgba(201,168,76,0.1); }
+  0%, 100% {
+    box-shadow:
+      0 2px 8px rgba(201,168,76,0.15),
+      0 4px 16px rgba(201,168,76,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+  50% {
+    box-shadow:
+      0 4px 12px rgba(201,168,76,0.22),
+      0 8px 28px rgba(201,168,76,0.14),
+      0 12px 44px rgba(201,168,76,0.06),
+      inset 0 1px 0 rgba(255,255,255,0.25);
+  }
 }
 
 .enquire-btn {
-  animation: breatheGlow 3s ease-in-out infinite;
+  animation: breatheGlow 3.5s ease-in-out infinite;
 }
 
 /* JS-triggered periodic shimmer */
