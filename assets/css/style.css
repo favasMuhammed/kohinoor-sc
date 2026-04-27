@@ -5,7 +5,9 @@
 
 :root {
   --purple: #2A1050;
+  --purple-deep: #1B0A35;
   --gold: #C9A84C;
+  --gold-light: #E2C96D;
   --white: #FFFFFF;
   --sans: 'Jost', sans-serif;
   --serif: 'Cormorant Garamond', serif;
@@ -26,7 +28,7 @@ body {
   font-family: var(--sans);
   background-color: var(--purple);
   color: var(--white);
-  overflow: hidden; /* Lenis handles inertia, but layout is 100vh locked */
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
@@ -37,7 +39,7 @@ body {
   flex-direction: column;
 }
 
-/* SVG Noise Grain Overlay - The Awwwards Detail */
+/* SVG Noise Grain Overlay — The Awwwards Detail */
 body::before {
   content: '';
   position: fixed;
@@ -47,6 +49,19 @@ body::before {
   pointer-events: none;
   z-index: 1;
   mix-blend-mode: overlay;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Cinematic Video Background */
@@ -65,7 +80,13 @@ body::before {
 .video-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(42, 16, 80, 0.85); /* Deep purple overlay */
+  background: linear-gradient(
+    180deg,
+    rgba(27, 10, 53, 0.92) 0%,
+    rgba(42, 16, 80, 0.80) 40%,
+    rgba(42, 16, 80, 0.85) 70%,
+    rgba(27, 10, 53, 0.95) 100%
+  );
   z-index: 0;
   pointer-events: none;
 }
@@ -118,38 +139,57 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   min-height: 0;
+  padding: 0 24px;
 }
 
 .zone {
   text-align: center;
-  /* GSAP will animate these in, no CSS transitions needed here */
 }
 
-/* ZONE 1: Logo Mark */
+/* ── ZONE 1: Logo Mark ── */
 .zone-1 {
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 .logo-mark {
   opacity: 0; /* GSAP */
   filter: brightness(0) invert(1);
-  width: clamp(200px, 25vw, 350px);
+  width: clamp(180px, 22vw, 300px);
   max-width: 90vw;
 }
 
-/* ZONE 3: Ornamental Divider */
-.zone-3 {
-  margin-bottom: 20px;
+/* ── ZONE 2: Welcome Heading ── */
+.zone-2 {
+  margin-bottom: 12px;
+}
+.welcome-heading {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  opacity: 0; /* GSAP */
+}
+.gold-accent {
+  color: var(--gold);
+  font-weight: 400;
 }
 
-/* ZONE 4: Hero Line */
+/* ── ZONE 3: Ornamental Divider ── */
+.zone-3 {
+  margin-bottom: 14px;
+}
+
+/* ── ZONE 4: Hero Headline ── */
 .zone-4 {
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 }
 .hero-line {
   font-family: var(--serif);
   font-weight: 400;
   font-size: clamp(2rem, 3.5vw, 3.2rem);
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--white);
   text-shadow: 0 4px 12px rgba(0,0,0,0.4);
@@ -164,21 +204,44 @@ a:focus-visible {
   color: var(--gold);
 }
 
-.hero-sub {
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.95);
-  margin-top: 12px;
-  text-transform: uppercase;
-  opacity: 0; /* GSAP */
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+/* ── ZONE 5: Welcome Message ── */
+.zone-5 {
+  margin-bottom: 24px;
+  max-width: 620px;
 }
 
-/* ZONE 5: Liquid Glass CTA */
-.zone-5 {
-  margin-bottom: 48px;
+.welcome-text {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  opacity: 0; /* GSAP */
+}
+
+.gold-highlight {
+  font-weight: 400;
+  color: var(--gold-light);
+  font-style: normal;
+}
+
+.welcome-sub {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 14px;
+  opacity: 0; /* GSAP */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* ── ZONE 6: Liquid Glass CTA ── */
+.zone-6 {
+  margin-bottom: 32px;
 }
 .cta-surface {
   background: rgba(255, 255, 255, 0.04);
@@ -265,7 +328,7 @@ a:focus-visible {
 
 /* ── Enquire Button: Premium Shimmer + Layered Glow ── */
 .enquire-btn {
-  background: linear-gradient(135deg, var(--gold) 0%, #E2C96D 50%, var(--gold) 100%);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
   background-size: 200% 200%;
   color: var(--purple);
   font-family: var(--sans);
@@ -420,7 +483,7 @@ a:focus-visible {
   100% { opacity: 0; transform: translateY(-40px) scale(0.5); }
 }
 
-/* ZONE 6: Contact Strip */
+/* ── ZONE 6: Contact Strip ── */
 .contact-strip {
   font-family: var(--sans);
   font-style: normal;
@@ -442,7 +505,7 @@ a:focus-visible {
   color: var(--gold);
 }
 
-/* ZONE 7: Legal */
+/* ── ZONE 7: Legal ── */
 .legal {
   flex-shrink: 0;
   padding: 16px 24px;
@@ -462,14 +525,10 @@ a:focus-visible {
    RESPONSIVE SCALING
    ═══════════════════════════════════════ */
 
-@media (max-width: 1399px) {
-  .brand-name { font-size: 7rem; }
-}
-
 @media (max-width: 1023px) {
-  .logo-mark { width: 220px; }
-  .zone-5 { margin-bottom: 36px; }
-  
+  .logo-mark { width: 200px; }
+  .zone-6 { margin-bottom: 24px; }
+
   .cta-surface {
     flex-direction: column;
     padding: 32px;
@@ -488,17 +547,19 @@ a:focus-visible {
 
 @media (max-width: 767px) {
   .cta-surface { width: 90vw; max-width: 400px; }
-  
+
   .contact-strip {
     flex-direction: column;
     gap: 8px;
   }
   .desktop-only { display: none; }
 
-  .zone-1 { margin-bottom: 16px; }
-  .zone-3 { margin-bottom: 14px; }
-  .zone-4 { margin-bottom: 24px; }
-  .zone-5 { margin-bottom: 24px; }
+  .zone-1 { margin-bottom: 10px; }
+  .zone-2 { margin-bottom: 8px; }
+  .zone-3 { margin-bottom: 10px; }
+  .zone-4 { margin-bottom: 12px; }
+  .zone-5 { margin-bottom: 16px; }
+  .zone-6 { margin-bottom: 18px; }
 
   .legal {
     padding: 12px 16px;
@@ -509,15 +570,21 @@ a:focus-visible {
 }
 
 @media (max-width: 599px) {
-  .logo-mark { width: 160px; }
+  .logo-mark { width: 150px; }
   .viewport-container { padding: 0 20px; }
-  .zone-1 { margin-bottom: 12px; }
-  .zone-3 { margin-bottom: 10px; }
-  .zone-4 { margin-bottom: 20px; }
-  .zone-5 { margin-bottom: 16px; }
+  .zone-1 { margin-bottom: 8px; }
+  .zone-2 { margin-bottom: 6px; }
+  .zone-3 { margin-bottom: 8px; }
+  .zone-4 { margin-bottom: 10px; }
+  .zone-5 { margin-bottom: 12px; }
+  .zone-6 { margin-bottom: 12px; }
+
+  .welcome-heading { font-size: 0.7rem; letter-spacing: 0.15em; }
 
   .hero-line { font-size: clamp(1.5rem, 5.5vw, 2rem); }
-  .hero-sub { font-size: 0.7rem; margin-top: 8px; }
+
+  .welcome-text { font-size: 0.88rem; line-height: 1.6; }
+  .welcome-sub { font-size: 0.7rem; margin-top: 10px; }
 
   .cta-surface { padding: 24px 20px; gap: 16px; }
   .enquire-btn { padding: 1rem 1.8rem; font-size: 0.7rem; }
@@ -525,8 +592,9 @@ a:focus-visible {
 
 @media (max-width: 374px) {
   .hero-line { font-size: 1.4rem; }
-  .hero-sub { font-size: 0.6rem; letter-spacing: 0.04em; }
-  .logo-mark { width: 140px; }
+  .welcome-text { font-size: 0.82rem; }
+  .welcome-sub { font-size: 0.6rem; letter-spacing: 0.04em; }
+  .logo-mark { width: 130px; }
   .cta-phone { font-size: 1rem; }
   .cta-email { font-size: 0.75rem; }
   .micro-label { font-size: 0.55rem; }
