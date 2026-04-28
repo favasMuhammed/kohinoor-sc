@@ -90,6 +90,9 @@ const init = () => {
       // 2.5s — Welcome sub-text
       .to('.welcome-sub', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 2.5)
 
+      // 2.6s — Welcome tagline
+      .to('.welcome-tagline', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 2.6)
+
       // 2.7s — Glass CTA surface rises
       .to('.cta-surface', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: 30, scale: 0.97 } }, 2.7)
 

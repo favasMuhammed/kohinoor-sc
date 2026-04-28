@@ -239,6 +239,17 @@ a:focus-visible {
   text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
+.welcome-tagline {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-top: 8px;
+  opacity: 0; /* GSAP */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
 /* ── ZONE 6: Liquid Glass CTA ── */
 .zone-6 {
   margin-bottom: 32px;
