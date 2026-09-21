@@ -59,50 +59,46 @@ const init = () => {
   }
 
   // 4. Master GSAP Animation Timeline
-  // Wait a tiny bit to ensure fonts/splitting are ready
-  setTimeout(() => {
-    const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+  const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-    tl
-      // 0.0s — Page starts dark (body opacity 0 -> 1)
-      .to('body', { opacity: 1, duration: 0.1 })
+  tl
+    // 0.0s — Background and Container fade-in
+    .to('.viewport-container', { opacity: 1, duration: 1 })
 
-      // 0.0s — Cinematic video fades in
-      .to('.ambient-video', { opacity: 1, duration: 2 }, 0)
+    // 0.0s — Cinematic video fades in
+    .to('.ambient-video', { opacity: 1, duration: 2 }, 0)
 
-      // 0.5s — Logo mark descends
-      .to('.logo-mark', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: -20, scale: 0.9 } }, 0.5)
+    // 0.5s — Logo mark descends
+    .to('.logo-mark', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: -20, scale: 0.9 } }, 0.3)
 
-      // 1.0s — Welcome heading fades in
-      .to('.welcome-heading', { opacity: 1, y: 0, duration: 0.8, startAt: { opacity: 0, y: 12 } }, 1.0)
+    // 0.8s — Welcome heading fades in
+    .to('.welcome-heading', { opacity: 1, y: 0, duration: 0.8, startAt: { opacity: 0, y: 12 } }, 0.6)
 
-      // 1.3s — Ornament divider draws itself
-      .to('.divider-line-left', { strokeDashoffset: 0, duration: 0.7 }, 1.3)
-      .to('.divider-line-right', { strokeDashoffset: 0, duration: 0.7 }, 1.3)
-      .to('.divider-diamond', { scale: 1, duration: 0.5, ease: "back.out(3)", startAt: { scale: 0, transformOrigin: "50% 50%" } }, 1.6)
+    // 1.0s — Ornament divider draws itself
+    .to('.divider-line-left', { strokeDashoffset: 0, duration: 0.7 }, 1.0)
+    .to('.divider-line-right', { strokeDashoffset: 0, duration: 0.7 }, 1.0)
+    .to('.divider-diamond', { scale: 1, duration: 0.5, ease: "back.out(3)", startAt: { scale: 0, transformOrigin: "50% 50%" } }, 1.3)
 
-      // 1.7s — Hero line words
-      .to('.hero-line .word', { opacity: 1, y: 0, stagger: 0.08, duration: 0.9, startAt: { opacity: 0, y: 20 } }, 1.7)
+    // 1.4s — Hero line words
+    .to('.hero-line .word', { opacity: 1, y: 0, stagger: 0.08, duration: 0.9, startAt: { opacity: 0, y: 20 } }, 1.4)
 
-      // 2.2s — Welcome text fades in and rises
-      .to('.welcome-text', { opacity: 1, y: 0, duration: 0.9, startAt: { y: 16 } }, 2.2)
+    // 1.8s — Welcome text fades in and rises
+    .to('.welcome-text', { opacity: 1, y: 0, duration: 0.9, startAt: { y: 16 } }, 1.8)
 
-      // 2.5s — Welcome sub-text
-      .to('.welcome-sub', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 2.5)
+    // 2.0s — Welcome sub-text
+    .to('.welcome-sub', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 2.0)
 
-      // 2.6s — Welcome tagline
-      .to('.welcome-tagline', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 2.6)
+    // 2.1s — Welcome tagline
+    .to('.welcome-tagline', { opacity: 1, y: 0, duration: 0.7, startAt: { y: 10 } }, 2.1)
 
-      // 2.7s — Glass CTA surface rises
-      .to('.cta-surface', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: 30, scale: 0.97 } }, 2.7)
+    // 2.2s — Glass CTA surface rises
+    .to('.cta-surface', { opacity: 1, y: 0, scale: 1, duration: 1, startAt: { y: 30, scale: 0.97 } }, 2.2)
 
-      // 3.0s — Contact strip
-      .to('.contact-strip', { opacity: 1, y: 0, duration: 0.8, startAt: { y: 12 } }, 3.0)
+    // 2.5s — Contact strip
+    .to('.contact-strip', { opacity: 1, y: 0, duration: 0.8, startAt: { y: 12 } }, 2.5)
 
-      // 3.3s — Legal
-      .to('.legal', { opacity: 1, duration: 0.8 }, 3.3);
-
-  }, 100);
+    // 2.8s — Legal
+    .to('.legal', { opacity: 1, duration: 0.8 }, 2.8);
 
 }; // End of init function
 

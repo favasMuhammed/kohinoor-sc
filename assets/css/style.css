@@ -4,8 +4,8 @@
    ═══════════════════════════════════════ */
 
 :root {
-  --purple: #2A1050;
-  --purple-deep: #1B0A35;
+  --purple: #1C0B38;
+  --purple-deep: #120524;
   --gold: #C9A84C;
   --gold-light: #E2C96D;
   --white: #FFFFFF;
@@ -27,14 +27,20 @@ html {
 body {
   font-family: var(--sans);
   background-color: var(--purple);
+  background-color: var(--purple);
   color: var(--white);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar { display: none; }
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   height: 100vh;
   height: 100svh;
-  opacity: 0; /* GSAP master timeline will fade this in */
   display: flex;
   flex-direction: column;
 }
@@ -82,10 +88,10 @@ body::before {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(27, 10, 53, 0.92) 0%,
-    rgba(42, 16, 80, 0.80) 40%,
-    rgba(42, 16, 80, 0.85) 70%,
-    rgba(27, 10, 53, 0.95) 100%
+    rgba(18, 5, 36, 0.95) 0%,
+    rgba(28, 11, 56, 0.88) 40%,
+    rgba(28, 11, 56, 0.90) 70%,
+    rgba(18, 5, 36, 0.97) 100%
   );
   z-index: 0;
   pointer-events: none;
@@ -140,6 +146,8 @@ a:focus-visible {
   justify-content: center;
   min-height: 0;
   padding: 0 24px;
+  opacity: 0; /* Content will fade in, but background will be visible */
+  will-change: transform, opacity;
 }
 
 .zone {
@@ -155,6 +163,7 @@ a:focus-visible {
   filter: brightness(0) invert(1);
   width: clamp(180px, 22vw, 300px);
   max-width: 90vw;
+  will-change: transform, opacity;
 }
 
 /* ── ZONE 2: Welcome Heading ── */
@@ -267,6 +276,7 @@ a:focus-visible {
   position: relative;
   overflow: hidden;
   opacity: 0; /* GSAP */
+  will-change: transform, opacity;
 }
 /* Inner light refraction */
 .cta-surface::before {
@@ -306,24 +316,41 @@ a:focus-visible {
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 8px;
 }
-.cta-phone {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: var(--white);
-  margin-bottom: 4px;
-  transition: color 0.3s ease;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-.cta-email {
+.cta-link {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
 }
-.cta-phone:hover, .cta-email:hover {
+.cta-link:last-child {
+  margin-bottom: 0;
+}
+.cta-phone {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.cta-icon {
+  width: 18px;
+  height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  flex: 0 0 18px;
   color: var(--gold);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.cta-link:hover {
+  color: var(--gold);
+}
+.cta-link:hover .cta-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .cta-separator {
@@ -335,6 +362,10 @@ a:focus-visible {
 
 .cta-right {
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
 }
 
 /* ── Enquire Button: Premium Shimmer + Layered Glow ── */
@@ -420,7 +451,56 @@ a:focus-visible {
   transform: translateX(4px);
 }
 
-/* Active press — satisfying tactile feedback */
+.about-btn {
+  color: var(--gold-light);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 1rem 2.2rem 1rem 2rem;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  background: rgba(201, 168, 76, 0.06);
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease,
+    background 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease;
+}
+
+.about-btn .btn-arrow {
+  display: inline-flex;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.about-btn .btn-arrow svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.about-btn:hover {
+  transform: translateY(-2px);
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.14);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.12);
+}
+
+.about-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
 .enquire-btn:active {
   transform: translateY(-1px) scale(0.98);
   box-shadow:
@@ -599,6 +679,7 @@ a:focus-visible {
 
   .cta-surface { padding: 24px 20px; gap: 16px; }
   .enquire-btn { padding: 1rem 1.8rem; font-size: 0.7rem; }
+  .about-btn { padding: 0.85rem 1.6rem; font-size: 0.65rem; }
 }
 
 @media (max-width: 374px) {
@@ -618,4 +699,15 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Nest Hub: reserve separate space for the contact strip and legal footer. */
+@media (width: 1024px) and (max-height: 600px) {
+  body { height: auto; min-height: 100svh; }
+  .viewport-container { flex: 1 0 auto; min-height: auto; padding-block: 16px 8px; }
+  .logo-mark { width: 170px; }
+  .zone-1, .zone-2, .zone-3 { margin-bottom: 8px; }
+  .zone-4 { margin-bottom: 12px; }
+  .zone-5, .zone-6 { margin-bottom: 16px; }
+  .legal { padding-block: 12px; }
 }

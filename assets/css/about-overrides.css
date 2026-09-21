@@ -1,0 +1,82 @@
+.about-nav .nav-logo { display: block; height: 70px; width: auto; }
+
+/* Final-scene refinements and unique editorial story treatment. */
+.story-media {
+  background-image: none;
+  background: radial-gradient(circle at 78% 36%, rgba(201, 168, 76, .16), transparent 28%),
+    linear-gradient(120deg, #2a104d 0%, #1c0b38 48%, #10041e 100%);
+}
+
+.story-scene .scene-shade { background: linear-gradient(90deg, rgba(18,5,36,.78), rgba(18,5,36,.32)); }
+
+/* Team-story imagery: a softened full-bleed echo maintains the cinematic canvas,
+   while the foreground portrait is deliberately framed farther out. */
+.team-feature { background: #16082b; }
+.team-feature::before {
+  content: "";
+  position: absolute;
+  inset: -4%;
+  z-index: 0;
+  background: center / cover no-repeat;
+  filter: blur(18px) brightness(.48) saturate(.82);
+  transform: scale(1.08);
+}
+.team-feature:nth-of-type(1)::before { background-image: url('../images/team/hameed-abdullah.webp'); }
+.team-feature:nth-of-type(2)::before { background-image: url('../images/team/riaz.webp'); }
+.team-feature::after { z-index: 2; }
+.team-feature img {
+  position: absolute;
+  z-index: 1;
+  inset: 0 3vw 0 auto;
+  width: min(78vw, 1480px);
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  transform: scale(1.18);
+  transition: transform 2.4s cubic-bezier(.22, .61, .36, 1);
+}
+.team-feature.is-current img { transform: scale(1.08); }
+.feature-copy, .chapter-intro, .chapter-count { z-index: 3; }
+
+.cta-media { background-image: url('../images/cta-event-table.png'); }
+
+.contact-panel {
+  width: min(100%, 420px);
+  margin-inline: auto;
+  padding: 28px 38px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.contact-panel::before { display: none; }
+
+.contact-links { display: grid; row-gap: 9px; align-content: center; }
+.contact-links::before { content: "Get in touch"; margin-bottom: 2px; color: rgba(255,255,255,.75); font-size: .65rem; font-weight: 400; letter-spacing: .38em; line-height: 1; text-transform: uppercase; }
+.contact-panel .contact-links { grid-column: 1; grid-row: 1; justify-self: center; }
+.contact-links a { display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 12px; align-items: center; min-height: 20px; line-height: 20px; }
+.contact-icon { display: block; width: 18px; height: 18px; color: var(--gold); }
+.contact-links a[href*="wa.me"] { position: relative; }
+.contact-links a[href*="wa.me"] .contact-icon { visibility: hidden; }
+.contact-links a[href*="wa.me"]::before { content: ""; position: absolute; left: 0; width: 18px; height: 18px; background: url('../images/whatsapp.svg') center / contain no-repeat; }
+.contact-links a:first-child { font-size: 1rem; color: var(--gold); }
+.contact-links a:hover { color: var(--gold); }
+.contact-links a:hover .contact-icon { transform: scale(1.1); }
+
+@media (max-width: 700px) {
+  .about-nav .nav-logo { height: 58px; }
+  .team-feature::before { filter: blur(12px) brightness(.44) saturate(.82); }
+  .team-feature img { inset: 3vh -8vw 0 auto; width: 116vw; height: 72vh; object-position: center top; transform: scale(1.08); }
+  .team-feature.is-current img { transform: scale(1); }
+  .contact-panel { padding: 22px; }
+  .contact-panel::before { display: none; }
+  .contact-links::before { text-align: center; }
+  .contact-links a { justify-content: center; }
+}
+
+/* Navbar spacing for the enlarged logo. */
+.about-nav { height: 94px; padding-block: 10px; }
+@media (max-width: 700px) {
+  .about-nav { height: 78px; padding: 8px 16px; }
+}
