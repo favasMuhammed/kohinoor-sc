@@ -1,14 +1,40 @@
 (() => {
-  const nav = document.querySelector('.about-nav');
-  const progress = [...document.querySelectorAll('.story-progress a')];
-  const scenes = [...document.querySelectorAll('[data-story-scene]')];
-  const setActive = (number) => progress.forEach(link => link.classList.toggle('is-active', link.dataset.scene === number));
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in-view'); setActive(entry.target.dataset.storyScene); } }), { threshold: .48 });
-  scenes.forEach(scene => observer.observe(scene));
-  document.querySelectorAll('.scroll-chapter').forEach(chapter => {
-    const steps = [...chapter.querySelectorAll('[data-step]')];
-    const update = () => { const available = chapter.offsetHeight - window.innerHeight; const ratio = Math.max(0, Math.min(1, -chapter.getBoundingClientRect().top / available)); const active = Math.min(steps.length - 1, Math.floor(ratio * steps.length)); steps.forEach((step, index) => step.classList.toggle('is-current', index === active)); const count = chapter.querySelector('.chapter-count b'); if (count) count.textContent = String(active + 1).padStart(2, '0'); };
-    window.addEventListener('scroll', update, { passive: true }); update();
+  const header = document.querySelector('.site-header');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Solid header once the page has scrolled.
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Fallback: show everything if IntersectionObserver is unavailable.
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  // Fade sections in as they enter the viewport.
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Load the showcase video only when it nears the viewport, and pause it off-screen.
+  const saveData = navigator.connection && navigator.connection.saveData;
+  document.querySelectorAll('video.lazy-video').forEach(video => {
+    if (saveData || reducedMotion) return; // poster image only
+    const videoObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (!video.src) video.src = video.dataset.src;
+        video.play().catch(() => {});
+      } else if (video.src) {
+        video.pause();
+      }
+    }, { rootMargin: '200px 0px' });
+    videoObserver.observe(video);
   });
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
 })();
