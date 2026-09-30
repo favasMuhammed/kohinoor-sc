@@ -28,23 +28,13 @@
       revealObserver.unobserve(entry.target);
     });
   }, { threshold: 0.2 });
-  document.querySelectorAll('.cue, .interval, .company, .your-cue').forEach(el => revealObserver.observe(el));
-
-  // ── Running-order links move focus to the cue heading, not just the scroll position ──
-  document.querySelectorAll('.ro-row').forEach(link => {
-    link.addEventListener('click', () => {
-      const heading = document.querySelector(`${link.hash} h2`);
-      if (heading) requestAnimationFrame(() => heading.focus({ preventScroll: true }));
-    });
-  });
+  document.querySelectorAll('.act, .interval, .your-cue').forEach(el => revealObserver.observe(el));
 
   // ── Signature moment 1 · the cue light ──
-  const cues = [...document.querySelectorAll('.cue[data-cue]')];
+  const cues = [...document.querySelectorAll('.step[data-cue]')];
   const light = document.querySelector('.cue-light');
   const lightState = light.querySelector('.cue-light-state');
   const lightNum = light.querySelector('.cue-light-num');
-  const rows = [...document.querySelectorAll('.ro-row')];
-  const tags = [...document.querySelectorAll('[data-cue-tag]')];
 
   const passed = new Set();   // headings that have reached the upper half of the viewport
   const inBand = new Set();   // headings currently inside the upper half
@@ -73,20 +63,13 @@
     lightNum.textContent = pad(shown);
     light.classList.toggle('is-live', !docked && (current > 0 || near.has(1)));
 
-    tags.forEach(tag => {
-      const n = Number(tag.dataset.cueTag);
-      const isGo = n <= current;
-      tag.classList.toggle('is-go', isGo);
-      tag.querySelector('.cue-tag-state').textContent = isGo ? 'Go' : 'Standby';
-    });
-    rows.forEach(row => row.classList.toggle('is-called', Number(row.dataset.ro) <= current));
-
-    if (current >= 6) triggerCut();
+    // The film sits beside steps 05–06, so it cuts in as the Deliver act starts
+    if (current >= 5) triggerCut();
   }
 
   const headingObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const n = Number(entry.target.closest('.cue').dataset.cue);
+      const n = Number(entry.target.closest('.step').dataset.cue);
       if (entry.isIntersecting) {
         passed.add(n);
         inBand.add(n);
@@ -101,14 +84,14 @@
 
   const nearObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const n = Number(entry.target.closest('.cue').dataset.cue);
+      const n = Number(entry.target.closest('.step').dataset.cue);
       entry.isIntersecting ? near.add(n) : near.delete(n);
     });
     render();
   }, { rootMargin: '0px 0px 50% 0px' });
 
   cues.forEach(cue => {
-    const heading = cue.querySelector('h2');
+    const heading = cue.querySelector('h3');
     headingObserver.observe(heading);
     nearObserver.observe(heading);
   });
@@ -122,7 +105,7 @@
     near.clear();
     cues.forEach(cue => {
       const n = Number(cue.dataset.cue);
-      const rect = cue.querySelector('h2').getBoundingClientRect();
+      const rect = cue.querySelector('h3').getBoundingClientRect();
       if (rect.top < mid) passed.add(n);
       if (rect.bottom > 0 && rect.top < mid) inBand.add(n);
       if (rect.top >= mid && rect.top < window.innerHeight * 1.5) near.add(n);
@@ -139,7 +122,7 @@
     }, { passive: true });
   }
 
-  // ── Signature moment 2 · the lighting cut (Cue 06) ──
+  // ── Signature moment 2 · the lighting cut (Deliver) ──
   const cut = document.querySelector('.cut');
   const video = cut.querySelector('video');
   const toggle = cut.querySelector('.cut-toggle');

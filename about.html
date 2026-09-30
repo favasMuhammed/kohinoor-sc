@@ -8,7 +8,7 @@
   <!-- Primary Meta Tags -->
   <title>About Us — Kohinoor Caterer | Asian Catering in Leicester &amp; the Midlands</title>
   <meta name="description"
-    content="How a Kohinoor Caterer event runs, cue by cue — from your first call and private tasting to the last dessert served. Asian catering across Leicester and the Midlands.">
+    content="Meet the team behind Kohinoor Caterer and see how an event comes together, from your first call and private tasting to the final dessert. Asian catering across Leicester and the Midlands.">
   <meta name="theme-color" content="#120524">
   <link rel="canonical" href="https://www.kohinoorcaterer.com/about.html">
 
@@ -26,7 +26,7 @@
   <link rel="preload" href="assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="icon" type="image/png" href="assets/images/KC.png">
-  <link rel="stylesheet" href="assets/css/about.css?v=20260930-1">
+  <link rel="stylesheet" href="assets/css/about.css?v=20261001-2">
 
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -48,8 +48,7 @@
     </div>
   </header>
 
-  <!-- The cue light: lives in the page margin (≥1024px) and tracks the running order.
-       Decorative — every state it shows is also written in each cue's visible label. -->
+  <!-- The cue light: lives in the page margin (≥1024px) and counts the six steps. Decorative; the steps are numbered in the text. -->
   <div class="cue-light" aria-hidden="true" data-state="standby">
     <span class="gem"></span>
     <span class="cue-light-label"><span class="cue-light-state">Standby</span> · Cue <span class="cue-light-num">01</span></span>
@@ -57,7 +56,6 @@
 
   <main id="main">
 
-    <!-- S0 · House lights -->
     <section class="house" aria-labelledby="house-title">
       <picture class="house-media">
         <source type="image/avif" srcset="assets/images/about/r/hero-crew-640.avif 640w, assets/images/about/r/hero-crew-1280.avif 1280w" sizes="(orientation: portrait) 180vh, 100vw">
@@ -66,170 +64,96 @@
           sizes="(orientation: portrait) 180vh, 100vw" width="1280" height="720" alt="The Kohinoor service team lined up before service" fetchpriority="high" decoding="async">
       </picture>
       <div class="grid house-inner">
-        <p class="kicker">Kohinoor Caterer · Leicester &amp; the Midlands</p>
+        <p class="kicker">About us</p>
         <h1 id="house-title" class="lines"><span><span>Every cue,</span></span> <span><span>called on <em>time.</em></span></span></h1>
-        <p class="house-lead rv-fade">Asian catering for weddings, private events and corporate functions. This is how your day runs, from the first call to the last dessert.</p>
-        <p class="cue-tag" data-cue-tag="1"><span class="gem" aria-hidden="true"></span><span><span class="cue-tag-state">Standby</span> · Cue 01</span></p>
+        <p class="house-lead rv-fade">Kohinoor Caterer brings authentic Asian food to weddings, private events and corporate functions across Leicester and the Midlands.</p>
       </div>
     </section>
 
-    <!-- S1 · The running order (the one paper surface on the page) -->
-    <nav class="running-order" aria-labelledby="ro-title">
-      <div class="grid">
-        <header class="ro-head">
-          <h2 id="ro-title">The running order</h2>
-          <p>Six cues, each with a name beside it.</p>
-        </header>
-
-        <div class="ro-cols" aria-hidden="true">
-          <span>Cue</span><span>What</span><span>Owner</span><span>When</span>
-        </div>
-
-        <!-- Acts take their names from the logo's own tagline: Inspire · Create · Deliver -->
-        <h3 class="ro-act">Inspire</h3>
-        <ol class="ro-list">
-          <li><a class="ro-row" href="#cue-1" data-ro="1"><span class="ro-num"><span class="sr-only">Cue </span>01</span> <span class="ro-what">First call</span> <span class="ro-owner"><span class="sr-only">Owner: </span>You</span> <span class="ro-when" data-needed="typical lead time before the event for the first call"><span class="sr-only">When: </span>[NEEDED: lead time]</span> <span class="ro-tick" aria-hidden="true"></span></a></li>
-          <li><a class="ro-row" href="#cue-2" data-ro="2"><span class="ro-num"><span class="sr-only">Cue </span>02</span> <span class="ro-what">Private tasting</span> <span class="ro-owner"><span class="sr-only">Owner: </span>Riaz</span> <span class="ro-when" data-needed="typical lead time before the event for the tasting"><span class="sr-only">When: </span>[NEEDED: lead time]</span> <span class="ro-tick" aria-hidden="true"></span></a></li>
+    <!-- Three acts, named after the logo's own tagline. Each person appears once, beside their photo. -->
+    <section class="act" aria-labelledby="inspire-title">
+      <div class="grid act-inner">
+        <h2 id="inspire-title" class="act-title lines"><span><span>Inspire</span></span></h2>
+        <ol class="steps">
+          <li class="step rv-fade" data-cue="1">
+            <h3><span class="step-num">01</span> First call</h3>
+            <p>Your first conversation is with Riaz, our Event Coordinator. Tell him the date, the venue, the guests and the traditions the day should honour.</p>
+          </li>
+          <li class="step rv-fade" data-cue="2">
+            <h3><span class="step-num">02</span> Private tasting</h3>
+            <p>Before you commit, you taste our signature dishes and shape a menu around your guests, your taste and your budget.</p>
+          </li>
         </ol>
-
-        <h3 class="ro-act">Create</h3>
-        <ol class="ro-list" start="3">
-          <li><a class="ro-row" href="#cue-3" data-ro="3"><span class="ro-num"><span class="sr-only">Cue </span>03</span> <span class="ro-what">Menu set</span> <span class="ro-owner"><span class="sr-only">Owner: </span>Riaz, with you</span> <span class="ro-when" data-needed="typical lead time before the event when the menu is confirmed"><span class="sr-only">When: </span>[NEEDED: lead time]</span> <span class="ro-tick" aria-hidden="true"></span></a></li>
-          <li><a class="ro-row" href="#cue-4" data-ro="4"><span class="ro-num"><span class="sr-only">Cue </span>04</span> <span class="ro-what">The pass</span> <span class="ro-owner"><span class="sr-only">Owner: </span>Hameed Abdullah</span> <span class="ro-when"><span class="sr-only">When: </span>On the day</span> <span class="ro-tick" aria-hidden="true"></span></a></li>
-        </ol>
-
-        <h3 class="ro-act">Deliver</h3>
-        <ol class="ro-list" start="5">
-          <li><a class="ro-row" href="#cue-5" data-ro="5"><span class="ro-num"><span class="sr-only">Cue </span>05</span> <span class="ro-what">Grill lit</span> <span class="ro-owner"><span class="sr-only">Owner: </span>The kitchen team</span> <span class="ro-when"><span class="sr-only">When: </span>On the day</span> <span class="ro-tick" aria-hidden="true"></span></a></li>
-          <li><a class="ro-row" href="#cue-6" data-ro="6"><span class="ro-num"><span class="sr-only">Cue </span>06</span> <span class="ro-what">Service, to the last dessert</span> <span class="ro-owner"><span class="sr-only">Owner: </span>The service team</span> <span class="ro-when"><span class="sr-only">When: </span>On the day</span> <span class="ro-tick" aria-hidden="true"></span></a></li>
-        </ol>
-      </div>
-    </nav>
-
-    <!-- Cue 1 · Inspire -->
-    <section class="cue" id="cue-1" data-cue="1" aria-labelledby="cue-1-title">
-      <div class="grid cue-inner">
-        <p class="cue-num" aria-hidden="true"><span>01</span></p>
-        <div class="cue-copy">
-          <p class="cue-tag" data-cue-tag="1"><span class="gem" aria-hidden="true"></span><span><span class="cue-tag-state">Standby</span> · Inspire · Cue 01</span></p>
-          <h2 id="cue-1-title" class="lines" tabindex="-1"><span><span>First call</span></span></h2>
-          <p class="rv-fade">Your first conversation is with Riaz, our Event Coordinator. Tell him the date, the venue, the guest list and the traditions the day needs to honour. From here, he&rsquo;s your contact all the way to the day itself.</p>
-        </div>
-        <figure class="cue-media rv-light">
+        <figure class="act-media rv-light">
           <picture>
-            <source type="image/avif" srcset="assets/images/about/r/riaz-720.avif 720w, assets/images/about/r/riaz-1440.avif 1440w" sizes="(min-width: 1024px) 50vw, 100vw">
+            <source type="image/avif" srcset="assets/images/about/r/riaz-720.avif 720w, assets/images/about/r/riaz-1440.avif 1440w" sizes="(min-width: 1280px) 45vw, 100vw">
             <img src="assets/images/about/r/riaz-1440.webp" srcset="assets/images/about/r/riaz-720.webp 720w, assets/images/about/r/riaz-1440.webp 1440w"
-              sizes="(min-width: 1024px) 50vw, 100vw" width="1440" height="804" loading="lazy" decoding="async"
-              alt="Riaz, Event Coordinator, centre, preparing dishes with the kitchen team">
-          </picture>
-          <!-- Riaz is the middle figure in this group shot; the tag says so instead of relying on a caption below -->
-          <figcaption class="media-tag" style="--x: 54%; --y: 30%">Riaz</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Cue 2 · Inspire -->
-    <section class="cue cue--mirror" id="cue-2" data-cue="2" aria-labelledby="cue-2-title">
-      <div class="grid cue-inner">
-        <p class="cue-num" aria-hidden="true"><span>02</span></p>
-        <div class="cue-copy">
-          <p class="cue-tag" data-cue-tag="2"><span class="gem" aria-hidden="true"></span><span><span class="cue-tag-state">Standby</span> · Inspire · Cue 02</span></p>
-          <h2 id="cue-2-title" class="lines" tabindex="-1"><span><span>Private tasting</span></span></h2>
-          <p class="rv-fade">Before you commit, you taste. Riaz sits down with you over our signature dishes, and together you shape a menu that fits your guests, your taste and your budget.</p>
-        </div>
-        <figure class="cue-media rv-light">
-          <picture>
-            <source type="image/avif" srcset="assets/images/about/r/chaat-720.avif 720w, assets/images/about/r/chaat-1440.avif 1440w" sizes="(min-width: 1024px) 50vw, 100vw">
-            <img src="assets/images/about/r/chaat-1440.webp" srcset="assets/images/about/r/chaat-720.webp 720w, assets/images/about/r/chaat-1440.webp 1440w"
-              sizes="(min-width: 1024px) 50vw, 100vw" width="1440" height="804" loading="lazy" decoding="async"
-              alt="Bowls of chaat being finished with tamarind chutney and yoghurt">
+              sizes="(min-width: 1280px) 45vw, 100vw" width="1440" height="804" loading="lazy" decoding="async"
+              alt="Riaz, Event Coordinator, with the kitchen team preparing dishes">
           </picture>
         </figure>
       </div>
     </section>
 
-    <!-- Cue 3 · Create -->
-    <section class="cue cue--wide" id="cue-3" data-cue="3" aria-labelledby="cue-3-title">
-      <div class="grid cue-inner">
-        <p class="cue-num" aria-hidden="true"><span>03</span></p>
-        <div class="cue-copy">
-          <p class="cue-tag" data-cue-tag="3"><span class="gem" aria-hidden="true"></span><span><span class="cue-tag-state">Standby</span> · Create · Cue 03</span></p>
-          <h2 id="cue-3-title" class="lines" tabindex="-1"><span><span>Menu set</span></span></h2>
-          <p class="rv-fade">Every celebration is different, so every menu is written for its guests, from Halal to Vegan and from Punjabi to Gujarati. We hand-select local British produce, farm-assured meats and whole aromatic spices.</p>
-        </div>
-        <figure class="cue-media rv-light">
+    <section class="act act--paper act--mirror" aria-labelledby="create-title">
+      <div class="grid act-inner">
+        <h2 id="create-title" class="act-title lines"><span><span>Create</span></span></h2>
+        <ol class="steps" start="3">
+          <li class="step rv-fade" data-cue="3">
+            <h3><span class="step-num">03</span> Menu set</h3>
+            <p>Written for your guests, from Halal to Vegan and Punjabi to Gujarati, with local British produce, farm-assured meats and whole aromatic spices.</p>
+          </li>
+          <li class="step rv-fade" data-cue="4">
+            <h3><span class="step-num">04</span> The pass</h3>
+            <p>Hameed Abdullah, our Head Chef, leads the kitchen: regional spice blends, slow-cooked royal curries and live banquet cooking, built on decades of experience.</p>
+          </li>
+        </ol>
+        <figure class="act-media act-media--portrait rv-light">
           <picture>
-            <source type="image/avif" srcset="assets/images/about/r/buffet-720.avif 720w, assets/images/about/r/buffet-1440.avif 1440w, assets/images/about/r/buffet-2048.avif 2048w" sizes="100vw">
-            <img src="assets/images/about/r/buffet-1440.webp" srcset="assets/images/about/r/buffet-720.webp 720w, assets/images/about/r/buffet-1440.webp 1440w, assets/images/about/r/buffet-2048.webp 2048w"
-              sizes="100vw" width="1440" height="804" loading="lazy" decoding="async"
-              alt="A buffet spread of starters, grills, chaat and salads">
-          </picture>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Interval · the tension beat; deliberately breaks the grid -->
-    <section class="interval" aria-label="Interval">
-      <p class="cue-tag is-go interval-status"><span class="gem" aria-hidden="true"></span><span>Interval · Cues 01–03 called · 04–06 on the day</span></p>
-      <p class="interval-line rv-fade">The day happens once. There is no second sitting.</p>
-      <p class="interval-stat rv-fade">
-        <span class="interval-num" data-needed="largest number of guests served at one event">[NEEDED: largest guest count]</span>
-        <span class="interval-cap">guests at our largest event</span>
-      </p>
-    </section>
-
-    <!-- Cue 4 · Create -->
-    <section class="cue cue--mirror" id="cue-4" data-cue="4" aria-labelledby="cue-4-title">
-      <div class="grid cue-inner">
-        <p class="cue-num" aria-hidden="true"><span>04</span></p>
-        <div class="cue-copy">
-          <p class="cue-tag" data-cue-tag="4"><span class="gem" aria-hidden="true"></span><span><span class="cue-tag-state">Standby</span> · Create · Cue 04</span></p>
-          <h2 id="cue-4-title" class="lines" tabindex="-1"><span><span>The pass</span></span></h2>
-          <p class="rv-fade">Hameed Abdullah runs the kitchen: authentic regional spices, slow-cooked royal curries and live banquet cooking, backed by decades of experience.</p>
-        </div>
-        <figure class="cue-media cue-media--portrait rv-light">
-          <picture>
-            <source type="image/avif" srcset="assets/images/about/r/hameed-720.avif 720w, assets/images/about/r/hameed-1200.avif 1200w" sizes="(min-width: 1024px) 34vw, 100vw">
+            <source type="image/avif" srcset="assets/images/about/r/hameed-720.avif 720w, assets/images/about/r/hameed-1200.avif 1200w" sizes="(min-width: 1280px) 40vw, 100vw">
             <img src="assets/images/about/r/hameed-1200.webp" srcset="assets/images/about/r/hameed-720.webp 720w, assets/images/about/r/hameed-1200.webp 1200w"
-              sizes="(min-width: 1024px) 34vw, 100vw" width="1200" height="1174" loading="lazy" decoding="async"
+              sizes="(min-width: 1280px) 40vw, 100vw" width="1200" height="1174" loading="lazy" decoding="async"
               alt="Hameed Abdullah, Head Chef, arms folded in chef’s whites">
           </picture>
         </figure>
       </div>
     </section>
 
-    <!-- Cue 5 · Deliver -->
-    <section class="cue" id="cue-5" data-cue="5" aria-labelledby="cue-5-title">
-      <div class="grid cue-inner">
-        <p class="cue-num" aria-hidden="true"><span>05</span></p>
-        <div class="cue-copy">
-          <p class="cue-tag" data-cue-tag="5"><span class="gem" aria-hidden="true"></span><span><span class="cue-tag-state">Standby</span> · Deliver · Cue 05</span></p>
-          <h2 id="cue-5-title" class="lines" tabindex="-1"><span><span>Grill lit</span></span></h2>
-          <p class="rv-fade">Kebabs, tikkas and chops go over the grill at your venue, cooked fresh as your guests arrive.</p>
-        </div>
-        <!-- No real grill imagery exists yet; this reserves the exact slot so the photo drops in without layout change -->
-        <figure class="cue-media needed-media" data-needed="photo of the live grill cooked on site at an event">
-          <figcaption>[NEEDED: photo of the live grill cooked on site]</figcaption>
-        </figure>
-      </div>
+    <!-- Interval · the one pause in the page; full-bleed, no columns -->
+    <section class="interval" aria-label="Interval">
+      <picture class="interval-media">
+        <source type="image/avif" srcset="assets/images/about/r/buffet-720.avif 720w, assets/images/about/r/buffet-1440.avif 1440w, assets/images/about/r/buffet-2048.avif 2048w" sizes="100vw">
+        <img src="assets/images/about/r/buffet-1440.webp" srcset="assets/images/about/r/buffet-720.webp 720w, assets/images/about/r/buffet-1440.webp 1440w, assets/images/about/r/buffet-2048.webp 2048w"
+          sizes="100vw" width="1440" height="804" alt="" loading="lazy" decoding="async">
+      </picture>
+      <p class="interval-line rv-fade">The day happens once. There is no second sitting.</p>
+      <!-- Hidden until a real figure is supplied: replace the [NEEDED] text, then remove `hidden` -->
+      <p class="interval-stat rv-fade" hidden>
+        <span class="interval-num" data-needed="largest number of guests served at one event">[NEEDED: largest guest count]</span>
+        <span class="interval-cap">guests at our largest event</span>
+      </p>
     </section>
 
-    <!-- Cue 6 · Deliver — signature moment 2: the lighting cut -->
-    <section class="cue cue--mirror cue--cut" id="cue-6" data-cue="6" aria-labelledby="cue-6-title">
-      <div class="grid cue-inner">
-        <p class="cue-num" aria-hidden="true"><span>06</span></p>
-        <div class="cue-copy">
-          <p class="cue-tag" data-cue-tag="6"><span class="gem" aria-hidden="true"></span><span><span class="cue-tag-state">Standby</span> · Deliver · Cue 06</span></p>
-          <h2 id="cue-6-title" class="lines" tabindex="-1"><span><span>Service, to the</span></span> <span><span>last dessert</span></span></h2>
-          <p class="rv-fade">Our event team runs the room from the first course to the final dessert served, so the only thing you need to do is be there.</p>
-        </div>
-        <figure class="cue-media cut">
-          <!-- Plays only the 17–34s service segment of the brand film (garnish, plating, trays out); the line-up frame is the hero -->
+    <section class="act act--cut" aria-labelledby="deliver-title">
+      <div class="grid act-inner">
+        <h2 id="deliver-title" class="act-title lines"><span><span>Deliver</span></span></h2>
+        <ol class="steps" start="5">
+          <li class="step rv-fade" data-cue="5">
+            <h3><span class="step-num">05</span> Grill lit</h3>
+            <p>Kebabs, tikkas and chops are cooked on the grill at your venue as your guests arrive.</p>
+          </li>
+          <li class="step rv-fade" data-cue="6">
+            <h3><span class="step-num">06</span> Service</h3>
+            <p>Our event team runs the room from the first course to the final dessert. All you need to do is be there.</p>
+          </li>
+        </ol>
+        <!-- Signature moment 2 · the lighting cut. Plays only the 17–34s service segment of the brand film. -->
+        <figure class="act-media cut">
           <video class="cut-video" muted playsinline preload="none" width="1280" height="720"
             poster="assets/images/about/r/poster-cut-1280.webp"
             data-src="assets/video/An-Najeebkohinoor-1.mp4" data-start="17" data-end="34"></video>
           <span class="cut-blackout" aria-hidden="true"></span>
-          <figcaption class="sr-only">Film of the Kohinoor service team lining up, plating biryani and carrying trays to the tables.</figcaption>
+          <figcaption class="sr-only">Film of the Kohinoor team garnishing, plating biryani and carrying trays to the tables.</figcaption>
           <button class="cut-toggle" type="button" aria-label="Play video" data-playing="false">
             <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
             <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
@@ -238,39 +162,7 @@
       </div>
     </section>
 
-    <!-- S7 · The company — credits set like a theatre programme -->
-    <section class="company" aria-labelledby="company-title">
-      <div class="grid">
-        <h2 id="company-title" class="lines"><span><span>The company</span></span></h2>
-        <dl class="credits">
-          <div class="credit rv-fade">
-            <dt>Hameed Abdullah</dt>
-            <dd class="credit-role">Head Chef</dd>
-            <dd class="credit-line">Runs the pass.</dd>
-          </div>
-          <div class="credit rv-fade">
-            <dt>Riaz</dt>
-            <dd class="credit-role">Event Coordinator</dd>
-            <dd class="credit-line">Calls the cues.</dd>
-          </div>
-          <div class="credit rv-fade">
-            <dt>The Service Team</dt>
-            <dd class="credit-role">Hospitality</dd>
-            <dd class="credit-line">Looks after your guests.</dd>
-          </div>
-          <div class="credit rv-fade">
-            <dt data-needed="other team members to credit, with roles">[NEEDED: further names]</dt>
-            <dd class="credit-role" data-needed="their roles">[NEEDED: roles]</dd>
-          </div>
-        </dl>
-        <blockquote class="note rv-fade" data-needed="a short note in Hameed's or Riaz's own words, signed by them">
-          <p>[NEEDED: a short note in Hameed&rsquo;s or Riaz&rsquo;s own words]</p>
-          <footer>[NEEDED: signature]</footer>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- S8 · Your cue — signature moment 3: the cue light docks in the call button -->
+    <!-- Signature moment 3 · the cue light docks in the call button -->
     <section class="your-cue" id="contact" aria-labelledby="yc-title">
       <picture class="your-cue-media">
         <source type="image/avif" srcset="assets/images/about/r/cta-800.avif 800w, assets/images/about/r/cta-1600.avif 1600w" sizes="100vw">
@@ -278,8 +170,7 @@
           sizes="100vw" width="1600" height="900" alt="" loading="lazy" decoding="async">
       </picture>
       <div class="grid your-cue-inner">
-        <p class="cue-tag is-standby"><span class="gem" aria-hidden="true"></span><span>Standby · Cue 01</span></p>
-        <h2 id="yc-title" class="lines"><span><span>Every day we cater starts</span></span> <span><span>with one call. <em>Yours.</em></span></span></h2>
+        <h2 id="yc-title" class="lines"><span><span>Every event we cater starts</span></span> <span><span>with one call. <em>Yours.</em></span></span></h2>
         <p class="rv-fade">Tell us the date, and we&rsquo;ll take it from there.</p>
         <a class="call" href="tel:07777246444">
           <span class="call-gem" aria-hidden="true"><span class="gem"></span></span>
@@ -306,7 +197,7 @@
     <p class="legal">Indian Kohinoor Food Ltd (09070285) trading as Kohinoor Caterer <span class="dot" aria-hidden="true">·</span> &copy; 2026</p>
   </footer>
 
-  <script src="assets/js/about.js?v=20260930-1" defer></script>
+  <script src="assets/js/about.js?v=20261001-2" defer></script>
 </body>
 
 </html>
